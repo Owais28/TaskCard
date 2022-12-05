@@ -4,8 +4,7 @@ import FormatListBulletedRoundedIcon from '@mui/icons-material/FormatListBullete
 import { useState } from "react";
 import { BottomButton } from "../Button/BottomButton";
 import Link from "next/link";
-
-
+import { useSwiper } from "swiper/react";
 
 const styles = {
   root: {
@@ -27,6 +26,8 @@ export const BottomMenu = () => {
     settings: false
   })
 
+  const swiper = useSwiper();
+
   // console.log(selectedButton)
 
   const handleClick = (choice) => {
@@ -39,7 +40,8 @@ export const BottomMenu = () => {
           notifications: false,
           settings: false
         }
-        )
+        );
+        swiper.slideTo(0)
         break;
       case 2:
         setSelectedButton({
@@ -48,7 +50,8 @@ export const BottomMenu = () => {
           newTaks: false,
           notifications: false,
           settings: false
-        })
+        });
+        swiper.slideTo(1)
         break;
       case 3:
         setSelectedButton({
@@ -57,7 +60,8 @@ export const BottomMenu = () => {
           newTaks: true,
           notifications: false,
           settings: false
-        })
+        });
+        
         break;
       case 4:
         setSelectedButton({
@@ -66,7 +70,8 @@ export const BottomMenu = () => {
           newTaks: false,
           notifications: true,
           settings: false
-        })
+        });
+        swiper.slideTo(2)
         break;
       case 5: setSelectedButton({
         home: false,
@@ -74,7 +79,8 @@ export const BottomMenu = () => {
         newTaks: false,
         notifications: false,
         settings: true
-      })
+      });
+      swiper.slideTo(3)
         break;
       default:
         break;
@@ -96,7 +102,7 @@ export const BottomMenu = () => {
             display: 'flex',
             justifyContent: "space-between",
             alignItems: 'center',
-            zIndex : 20 
+            zIndex: 20
           }
         }
         elevation={3}>
@@ -134,11 +140,11 @@ export const BottomMenu = () => {
         </Box>
 
         <Box onClick={(event) => handleClick(4)} flex={1}>
-          <Link href={'/make'}>
+          {/* <Link href={'/make'}> */}
             <BottomButton selected={selectedButton.notifications} color='notSelected' colorIfSelected="black">
               <NotificationsRounded fontSize="small" />
             </BottomButton>
-          </Link>
+          {/* </Link> */}
         </Box>
 
         <Box onClick={(event) => handleClick(5)} flex={1}>

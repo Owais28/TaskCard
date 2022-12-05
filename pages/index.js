@@ -23,6 +23,9 @@ const theme = createTheme(
 )
 
 export default function Home() {
+
+  // const [swiper, setSwiper] = React.useState<Swiper>()
+
   return (
     <Box
       sx={{
@@ -38,19 +41,25 @@ export default function Home() {
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
+          initialSlide={1}
+          zoom={false}
           onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
-        >
-          <SwiperSlide>
+          onSwiper={(swiper) => 
+            {
+              console.log(swiper)
+              // setSwiper(swiper)
+            }}
+            >
+          <SwiperSlide virtualIndex={1}>
             <HomeSection />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide virtualIndex={2}>
             <HomeSection />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide virtualIndex={3}>
             <HomeSection />
           </SwiperSlide>
-          <SwiperSlide>
+          <SwiperSlide virtualIndex={4}>
             <HomeSection />
           </SwiperSlide>
           <BottomMenu />
