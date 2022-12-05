@@ -27,9 +27,15 @@ export const BottomMenu = () => {
   })
 
   const swiper = useSwiper();
-
+  
   // console.log(selectedButton)
-
+  
+  swiper.on('slideChange', (swiper) => handleSwipeChange(swiper.activeIndex))
+  // console.log(swiper)
+  
+  const handleSwipeChange = (activeSlide) => {
+    handleClick(activeSlide + 1)
+  } 
   const handleClick = (choice) => {
     switch (choice) {
       case 1:
@@ -53,17 +59,17 @@ export const BottomMenu = () => {
         });
         swiper.slideTo(1)
         break;
-      case 3:
-        setSelectedButton({
-          home: false,
-          task: false,
-          newTaks: true,
-          notifications: false,
-          settings: false
-        });
+      // case 3:
+      //   setSelectedButton({
+      //     home: false,
+      //     task: false,
+      //     newTaks: true,
+      //     notifications: false,
+      //     settings: false
+      //   });
         
         break;
-      case 4:
+      case 3:
         setSelectedButton({
           home: false,
           task: false,
@@ -73,7 +79,7 @@ export const BottomMenu = () => {
         });
         swiper.slideTo(2)
         break;
-      case 5: setSelectedButton({
+      case 4: setSelectedButton({
         home: false,
         task: false,
         newTaks: false,
@@ -127,8 +133,9 @@ export const BottomMenu = () => {
           flex: 1,
           height: '100%'
         }}
-          onClick={(event) =>
-            handleClick(3)}>
+          // onClick={(event) =>
+          //   handleClick(3)}
+            >
           <Button color="blue" sx={{
             flex: 1,
             width: '100%',
@@ -139,7 +146,7 @@ export const BottomMenu = () => {
           </Button>
         </Box>
 
-        <Box onClick={(event) => handleClick(4)} flex={1}>
+        <Box onClick={(event) => handleClick(3)} flex={1}>
           {/* <Link href={'/make'}> */}
             <BottomButton selected={selectedButton.notifications} color='notSelected' colorIfSelected="black">
               <NotificationsRounded fontSize="small" />
@@ -147,7 +154,7 @@ export const BottomMenu = () => {
           {/* </Link> */}
         </Box>
 
-        <Box onClick={(event) => handleClick(5)} flex={1}>
+        <Box onClick={(event) => handleClick(4)} flex={1}>
           <BottomButton selected={selectedButton.settings} color='notSelected' colorIfSelected="black">
             <SettingsRounded fontSize="small" />
           </BottomButton>

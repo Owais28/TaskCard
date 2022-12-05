@@ -41,12 +41,12 @@ export default function Home() {
         <Swiper
           spaceBetween={10}
           slidesPerView={1}
-          initialSlide={1}
+          initialSlide={0}
           zoom={false}
-          onSlideChange={() => console.log('slide change')}
+          // onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => 
             {
-              console.log(swiper)
+              // console.log(swiper)
               // setSwiper(swiper)
             }}
             >
