@@ -1,37 +1,36 @@
-import { ThemeProvider, createTheme } from '@mui/material'
-import Head from 'next/head'
-import { HomeSection } from '../components/Section/HomeSection'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css';
-import { BottomMenu } from '../components/Navigation/BottomMenu';
-import { Box } from '@mui/system';
+import { ThemeProvider, createTheme } from "@mui/material";
+import Head from "next/head";
+import { HomeSection } from "../components/Section/HomeSection";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { BottomMenu } from "../components/Navigation/BottomMenu";
+import { Box } from "@mui/system";
+import { NewProject } from "../components/Section/NewProject";
 
-const theme = createTheme(
-  {
-    palette: {
-      blue: {
-        main: "#1f78f0"
-      },
-      notSelected: {
-        main: '#ccc'
-      },
-      black: {
-        main: 'rgb(0,0,0)'
-      }
-    }
-  }
-)
+const theme = createTheme({
+  palette: {
+    blue: {
+      main: "#1f78f0",
+    },
+    notSelected: {
+      main: "#ccc",
+    },
+    black: {
+      main: "rgb(0,0,0)",
+    },
+  },
+});
 
 export default function Home() {
-
   // const [swiper, setSwiper] = React.useState<Swiper>()
 
   return (
     <Box
       sx={{
-        position: 'relative',
+        position: "relative",
         top: 0,
-      }}>
+      }}
+    >
       <ThemeProvider theme={theme}>
         <Head>
           <title>TaskCard | Home</title>
@@ -44,17 +43,16 @@ export default function Home() {
           initialSlide={0}
           zoom={false}
           // onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => 
-            {
-              // console.log(swiper)
-              // setSwiper(swiper)
-            }}
-            >
+          onSwiper={(swiper) => {
+            // console.log(swiper)
+            // setSwiper(swiper)
+          }}
+        >
           <SwiperSlide virtualIndex={1}>
             <HomeSection />
           </SwiperSlide>
           <SwiperSlide virtualIndex={2}>
-            <HomeSection />
+            <NewProject />
           </SwiperSlide>
           <SwiperSlide virtualIndex={3}>
             <HomeSection />
@@ -66,5 +64,5 @@ export default function Home() {
         </Swiper>
       </ThemeProvider>
     </Box>
-  )
+  );
 }
