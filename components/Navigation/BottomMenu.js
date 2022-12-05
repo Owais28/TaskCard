@@ -96,6 +96,7 @@ export const BottomMenu = () => {
             display: 'flex',
             justifyContent: "space-between",
             alignItems: 'center',
+            zIndex : 20 
           }
         }
         elevation={3}>
