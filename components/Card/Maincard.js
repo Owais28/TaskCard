@@ -5,18 +5,27 @@ import {
   Chip,
   Icon,
   LinearProgress,
+  Skeleton,
   Typography,
 } from "@mui/material";
 // import {makeStyles} from '@mui/'
 import { Box } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PriorityChip } from "../Chip/PriorityChip";
 import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
 import { DetailWithIcon } from "../Chip/DetailWithIcon";
 import { IoCalendarOutline } from "react-icons/io5";
 
 export const MainCard = ({ description, priority = 3, date }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+  }, []);
+
   return (
     <Box>
       <Card
@@ -44,14 +53,18 @@ export const MainCard = ({ description, priority = 3, date }) => {
             borderRadius={"7px"}
             overflow="hidden"
           >
-            <Image
-              src={
-                "https://images.unsplash.com/photo-1605106702842-01a887a31122?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-              }
-              fill
-              objectFit="cover"
-              alt="image-for-card"
-            />
+            {loading ? (
+              <Skeleton variant="rectangular" width={"100%"} height={"200px"} />
+            ) : (
+              <Image
+                src={
+                  "https://images.unsplash.com/photo-1605106702842-01a887a31122?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                }
+                fill
+                objectFit="cover"
+                alt="image-for-card"
+              />
+            )}
           </Box>
 
           {/* Main Heading and priority*/}
