@@ -52,6 +52,7 @@ export default function Home() {
           slidesPerView={1}
           initialSlide={0}
           simulateTouch={false}
+          allowTouchMove={false}
           zoom={false}
           // onSlideChange={() => console.log('slide change')}
           onSwiper={(swiper) => {
