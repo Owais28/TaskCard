@@ -6,6 +6,7 @@ import { MainFeed } from "../Feed/MainFeed";
 import { PrimaryAppBar } from "../PrimaryAppBar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { HorizontalFlexContaier } from "../Container/HorizontalFlexContaier";
 
 export const HomeSection = () => {
   return (
@@ -24,29 +25,32 @@ export const HomeSection = () => {
     >
       <PrimaryAppBar />
       <MainFeed>
-        <MainCard
-          priority={1}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
-        <MainCard
-          priority={2}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
-        <MainCard
-          priority={3}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
-        <MainCard
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
+        <HorizontalFlexContaier>
+
+          <MainCard
+            priority={1}
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+            }
+          />
+          <MainCard
+            priority={2}
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+            }
+          />
+          <MainCard
+            priority={3}
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+            }
+          />
+          <MainCard
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+            }
+          />
+        </HorizontalFlexContaier>
       </MainFeed>
     </Box>
   );

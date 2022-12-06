@@ -27,13 +27,15 @@ export const MainCard = ({ description, priority = 3, date }) => {
   }, []);
 
   return (
-    <Box>
+    <Box >
       <Card
         sx={{
           borderRadius: "10px",
           // backgroundColor : '#ccc',
           boxShadow: "0px 0px 25px 2px #e7e7e7",
           outline: "1px gray",
+          width : '360px',
+          mr : 3
         }}
         outlined
       >
