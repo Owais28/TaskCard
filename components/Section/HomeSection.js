@@ -57,6 +57,12 @@ export const HomeSection = () => {
       </HorizontalFlexContaierWithLink>
       <VerticalFlexConatinerWithLink link="/" containerTitle={'Today Task'}>
         <Task/>
+        <Task/>
+        <Task/>
+        <Task/>
+        <Task/>
+        <Task/>
+        <Task/>
       </VerticalFlexConatinerWithLink>
       {/* </MainFeed> */}
     </Box>
