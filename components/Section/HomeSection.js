@@ -6,7 +6,7 @@ import { MainFeed } from "../Feed/MainFeed";
 import { PrimaryAppBar } from "../PrimaryAppBar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { HorizontalFlexContaier } from "../Container/HorizontalFlexContaier";
+import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexContaierWithLink";
 
 export const HomeSection = () => {
   return (
@@ -24,9 +24,8 @@ export const HomeSection = () => {
       }}
     >
       <PrimaryAppBar />
-      <MainFeed>
-        <HorizontalFlexContaier>
-
+      {/* <MainFeed> */}
+        <HorizontalFlexContaierWithLink containerTitle={'Recent Project'} link={'/'}>
           <MainCard
             priority={1}
             description={
@@ -50,8 +49,8 @@ export const HomeSection = () => {
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
             }
           />
-        </HorizontalFlexContaier>
-      </MainFeed>
+        </HorizontalFlexContaierWithLink>
+      {/* </MainFeed> */}
     </Box>
   );
 };

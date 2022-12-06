@@ -9,6 +9,8 @@ export const MainFeed = ({ children }) => {
         display: "grid",
         gridTemplateColumns: "1fr",
         rowGap: "25px",
+        // width : '100%',
+        // overflow : 'hidden'
       }}
     >
       {children}
