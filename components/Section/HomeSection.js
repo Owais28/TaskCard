@@ -7,6 +7,8 @@ import { PrimaryAppBar } from "../PrimaryAppBar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexContaierWithLink";
+import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatinerWithLink";
+import { Task } from "../Task/Task";
 
 export const HomeSection = () => {
   return (
@@ -25,31 +27,37 @@ export const HomeSection = () => {
     >
       <PrimaryAppBar />
       {/* <MainFeed> */}
-        <HorizontalFlexContaierWithLink containerTitle={'Recent Project'} link={'/'}>
-          <MainCard
-            priority={1}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-            }
-          />
-          <MainCard
-            priority={2}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-            }
-          />
-          <MainCard
-            priority={3}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-            }
-          />
-          <MainCard
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-            }
-          />
-        </HorizontalFlexContaierWithLink>
+      <HorizontalFlexContaierWithLink
+        containerTitle={"Recent Project"}
+        link={"/"}
+      >
+        <MainCard
+          priority={1}
+          description={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+          }
+        />
+        <MainCard
+          priority={2}
+          description={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+          }
+        />
+        <MainCard
+          priority={3}
+          description={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+          }
+        />
+        <MainCard
+          description={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+          }
+        />
+      </HorizontalFlexContaierWithLink>
+      <VerticalFlexConatinerWithLink link="/" containerTitle={'Today Task'}>
+        <Task/>
+      </VerticalFlexConatinerWithLink>
       {/* </MainFeed> */}
     </Box>
   );

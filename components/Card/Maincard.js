@@ -35,7 +35,7 @@ export const MainCard = ({ description, priority = 3, date }) => {
           boxShadow: "0px 0px 25px 2px #e7e7e7",
           outline: "1px gray",
           width : '360px',
-          mr : 3
+          // mr : 3
         }}
         outlined
       >

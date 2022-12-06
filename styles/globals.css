@@ -19,7 +19,7 @@ body {
 
 .horizontal_flex_container:last-child {
   margin-right: 0px !important;
-  padding-right: 0;
+  /* padding-right: 0; */
 }
 
 /* Track */
