@@ -33,7 +33,7 @@ export default function Home() {
     >
       <ThemeProvider theme={theme}>
         <Head>
-          <title>TaskCard</title>
+          <title>TaskCard | Home</title>
           <meta name="description" content="A place to manage all your tasks" />
           {/* <link rel="icon" href="/favicon.ico" /> */}
           <meta charset="utf-8" />

@@ -22,6 +22,9 @@ const styles = {
 };
 
 export const BottomMenu = () => {
+  const swiper = useSwiper();
+
+  // state that keep track of selected section
   const [selectedButton, setSelectedButton] = useState({
     home: true,
     task: false,
@@ -30,16 +33,23 @@ export const BottomMenu = () => {
     settings: false,
   });
 
-  const swiper = useSwiper();
-
   // console.log(selectedButton)
-
-  swiper.on("slideChange", (swiper) => handleSwipeChange(swiper.activeIndex));
   // console.log(swiper)
 
-  const handleSwipeChange = (activeSlide) => {
+  // function that run un SlideChange event
+  swiper.on("slideChange", (swiper) => handleSlideChange(swiper.activeIndex));
+
+  // function to handle slide change
+  const handleSlideChange = (activeSlide) => {
     handleClick(activeSlide + 1);
   };
+
+  // Reset title upon every slide
+  const setTitle = (title) => {
+    document.title = "TaskCard | " + title;
+  };
+
+  // function that change color of buttons on the basis of active active slide
   const handleClick = (choice) => {
     switch (choice) {
       case 1:
@@ -51,6 +61,7 @@ export const BottomMenu = () => {
           settings: false,
         });
         swiper.slideTo(0);
+        setTitle("Home");
         break;
       case 2:
         setSelectedButton({
@@ -61,6 +72,7 @@ export const BottomMenu = () => {
           settings: false,
         });
         swiper.slideTo(1);
+        setTitle("Project");
         break;
         // case 3:
         //   setSelectedButton({
@@ -81,6 +93,7 @@ export const BottomMenu = () => {
           settings: false,
         });
         swiper.slideTo(2);
+        setTitle("Messages");
         break;
       case 4:
         setSelectedButton({
@@ -91,6 +104,7 @@ export const BottomMenu = () => {
           settings: true,
         });
         swiper.slideTo(3);
+        setTitle("Setting");
         break;
       default:
         break;
@@ -114,6 +128,7 @@ export const BottomMenu = () => {
         }}
         elevation={3}
       >
+        {/* Home Button */}
         <Box onClick={(event) => handleClick(1)} flex={1}>
           <BottomButton
             selected={selectedButton.home}
@@ -124,6 +139,7 @@ export const BottomMenu = () => {
           </BottomButton>
         </Box>
 
+        {/* Project Biutton */}
         <Box onClick={(event) => handleClick(2)} flex={1}>
           <BottomButton
             selected={selectedButton.task}
@@ -138,6 +154,8 @@ export const BottomMenu = () => {
             <BottomButton selected={selectedButton} py={0} color='blue' colorIfSelected="blue">
             </BottomButton>
           </Box> */}
+
+        {/* Middle Button */}
         <Box
           sx={{
             flex: 1,
@@ -159,6 +177,7 @@ export const BottomMenu = () => {
           </Button>
         </Box>
 
+        {/* Messages Button */}
         <Box onClick={(event) => handleClick(3)} flex={1}>
           {/* <Link href={'/make'}> */}
           <BottomButton
@@ -171,6 +190,7 @@ export const BottomMenu = () => {
           {/* </Link> */}
         </Box>
 
+        {/* Setting Button */}
         <Box onClick={(event) => handleClick(4)} flex={1}>
           <BottomButton
             selected={selectedButton.settings}
@@ -180,8 +200,6 @@ export const BottomMenu = () => {
             <SettingsRounded fontSize="small" />
           </BottomButton>
         </Box>
-
-        {/* Mainbutton */}
       </Paper>
     </Box>
   );
