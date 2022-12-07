@@ -44,6 +44,7 @@ export const PrimaryAppBar = ({ name }) => {
             }}
           >
             <IconButton
+              aria-label="search-button"
               color="black"
               sx={{
                 padding: "10px",
@@ -52,6 +53,7 @@ export const PrimaryAppBar = ({ name }) => {
               <FiSearch fontSize={22} fontWeight="bold" color="black" />
             </IconButton>
             <IconButton
+              aria-label="notification-button"
               color="black"
               sx={{
                 padding: "10px",
@@ -64,6 +66,7 @@ export const PrimaryAppBar = ({ name }) => {
               />
             </IconButton>
             <IconButton
+              aria-label="user-avatar"
               sx={{
                 paddingRight: 0,
               }}

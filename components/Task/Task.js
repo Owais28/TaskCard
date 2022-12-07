@@ -1,4 +1,4 @@
-import { Box, Checkbox, Typography } from "@mui/material";
+import { Box, Checkbox, Skeleton, Typography } from "@mui/material";
 import React from "react";
 
 export const Task = () => {
@@ -19,7 +19,7 @@ export const Task = () => {
           fontWeight={"bold"}
           fontFamily={"Rubik"}
           color={"rgb(0,0,0,.85)"}
-          mb={1}
+        // mb={1}
         >
           Kickoff Meeting Project
         </Typography>
@@ -36,6 +36,7 @@ export const Task = () => {
         }}
       >
         <Checkbox
+          aria-label="task-status"
           sx={{
             color: "#1f78f0",
             borderRadius: 10,

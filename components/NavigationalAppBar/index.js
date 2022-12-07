@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import WestRoundedIcon from "@mui/icons-material/WestRounded";
-import { ArrowBack } from "@mui/icons-material";
 
 export const NavigationalAppBar = () => {
   return (
@@ -28,19 +27,8 @@ export const NavigationalAppBar = () => {
               // fontSize : '10px'
             }}
           >
-            <IconButton
-              color="black"
-              sx={
-                {
-                  // padding: '10px'
-                }
-              }
-            >
-              <WestRoundedIcon
-                fontSize={"small"}
-                //  fontWeight='bold'
-                // color='black'
-              />
+            <IconButton color="black" aria-label="back-button">
+              <WestRoundedIcon fontSize={"small"} />
             </IconButton>
           </Box>
           <Typography

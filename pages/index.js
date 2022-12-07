@@ -21,16 +21,16 @@ const theme = createTheme({
   },
 });
 
-  // const window = new Window();
-  // window.addEventListener("offline", (event) => onlineStatusAndRelod());
+// const window = new Window();
+// window.addEventListener("offline", (event) => onlineStatusAndRelod());
 
-  // const onlineStatusAndRelod = () => {
-  //   location.reload()
-  // };
+// const onlineStatusAndRelod = () => {
+//   location.reload()
+// };
 
 export default function Home() {
   // const [swiper, setSwiper] = React.useState<Swiper>()
-  
+
   return (
     <Box
       sx={{
