@@ -33,6 +33,7 @@ export const HomeSection = () => {
       >
         <MainCard
           priority={1}
+          projectId={222}
           description={
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
           }
@@ -56,13 +57,13 @@ export const HomeSection = () => {
         />
       </HorizontalFlexContaierWithLink>
       <VerticalFlexConatinerWithLink link="/" containerTitle={'Today Task'}>
-        <Task/>
-        <Task/>
-        <Task/>
-        <Task/>
-        <Task/>
-        <Task/>
-        <Task/>
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
+        <Task />
       </VerticalFlexConatinerWithLink>
       {/* </MainFeed> */}
     </Box>
