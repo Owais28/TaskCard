@@ -30,6 +30,30 @@ export const taskManager = {
       task: "Kick Of meeting project",
       id: 3
     },
+    {
+      task: "Kick Of meeting project",
+      id: 4
+    },
+    {
+      task: "Kick Of meeting project",
+      id: 5
+    },
+    {
+      task: "Kick Of meeting project",
+      id: 6
+    }, {
+      task: "Kick Of meeting project",
+      id: 7
+    }, {
+      task: "Kick Of meeting project",
+      id: 8
+    }, {
+      task: "Kick Of meeting project",
+      id: 9
+    }, {
+      task: "Kick Of meeting project",
+      id: 10
+    },
     ],
     totalTasks: 3
   },
