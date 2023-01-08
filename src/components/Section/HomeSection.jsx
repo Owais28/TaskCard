@@ -1,16 +1,12 @@
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { MainCard } from "../Card/Maincard";
-import { MainFeed } from "../Feed/MainFeed";
-// import { BottomMenu } from "../Navigation/BottomMenu";
 import { PrimaryAppBar } from "../PrimaryAppBar";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexContaierWithLink";
 import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatinerWithLink";
 import { Task } from "../Task/Task";
 import { connect } from "react-redux";
-import { motion } from "framer-motion";
 
 const Home = ({ tasks, taskCount, deleteTask }) => {
   // console.log(tasks);

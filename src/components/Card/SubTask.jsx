@@ -1,18 +1,22 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { CiSquarePlus, CiCircleMore } from "react-icons/ci";
+import { SmallSubTask } from "./SmallSubTask";
+import { colors } from "@mui/material";
 
 export const SubTask = () => {
   const date = new Date();
+  console.log(colors);
+
   return (
     <Box
       p={2}
-      width={"500x !important"}
+      minWidth={"270px"}
       flex={1}
       flexShrink={0}
       flexBasis={1}
       flexGrow={1}
-      bgcolor={"#f5f5f5"}
+      bgcolor={colors.grey["100"]}
       borderRadius={2}
     >
       <Box
@@ -51,35 +55,17 @@ export const SubTask = () => {
           </Box>
         </Box>
         <Box>
-          <CiSquarePlus fontSize={25} />
+          <IconButton>
+            <CiSquarePlus fontSize={25} />
+          </IconButton>
         </Box>
       </Box>
-      <Box>
-        <Box bgcolor={"white"} p={2} borderRadius={2}>
-          <Box
-            direction={"row"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            mb={0.6}
-            display={"flex"}
-          >
-            <Typography
-              fontSize={"17px"}
-              fontWeight={"bold"}
-              fontFamily={"Rubik"}
-              mr={2}
-            >
-              Brainstroming
-            </Typography>
-            <Box>
-              <CiCircleMore />
-            </Box>
-          </Box>
-          <Typography fontSize={"13px"} color={"rgb(0,0,0,0.6)"}>
-            Due Date : {date.toDateString().split(" ").splice(1).join(" ")}
-          </Typography>
-        </Box>
-      </Box>
+      <Stack gap={2}>
+        <SmallSubTask />
+        <SmallSubTask />
+        <SmallSubTask />
+        <SmallSubTask />
+      </Stack>
     </Box>
   );
 };
