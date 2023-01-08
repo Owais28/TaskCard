@@ -5,12 +5,9 @@ export const MainFeed = ({ children }) => {
   return (
     <Box
       sx={{
-        // padding: "20px 18px",
         display: "grid",
         gridTemplateColumns: "1fr",
         rowGap: "25px",
-        // width : '100%',
-        // overflow : 'hidden'
       }}
     >
       {children}

@@ -55,7 +55,7 @@ export const taskManager = {
       id: 10
     },
     ],
-    totalTasks: 3
+    totalTaszks: 3
   },
   reducers: {
     deleteTask(state, payload) {
@@ -66,5 +66,73 @@ export const taskManager = {
         )
       }
     }
+  }
+}
+
+/*
+{
+    "id": "",
+    "title": "saa",
+    "description": "",
+    "status": "to-do",
+    "dueDate": "2023-01-05T16:36:12.897Z",
+    "boards": [
+        {
+            "id": "",
+            "title": "saa",
+            "description": "",
+            "status": "to-do",
+            "dueDate": "2023-01-05T16:36:12.897Z",
+            "subTask": [
+                {
+                    "id": "",
+                    "title": "",
+                    "dueDate": "2023-01-05T16:36:12.897Z"
+                }
+            ]
+        }
+    ],
+    "taskCount": 10
+}
+*/
+
+// function that generate random alphanumeric 
+const generateRandomId = () => {
+  return (Math.random().toString(15).substring(2))
+}
+
+const generateEmtyProject = (title) => (
+  {
+    "id": "",
+    "title": title,
+    "description": "",
+    "status": "",
+    "dueDate": null,
+    "boards": [
+    ],
+    "taskCount": 10
+  }
+)
+export const project = {
+  state: new Map(),
+  reducers: {
+    // reducer to delete a specific project
+    deleteProject: (state, id) => {
+      state.delete(id)
+      return state
+    },
+
+    // reducer to create a new project having only title
+    newProject: (state, payload) =>
+      state.set(generateRandomId(), generateEmtyProject(payload))
+    ,
+
+    // update project name 
+    updateProjectTitle: (state, payload) => {
+      const previousState = state.get(payload.id)
+      state.set(payload.id, { ...previousState, title: payload.title })
+      return state
+    }
+
   }
 }

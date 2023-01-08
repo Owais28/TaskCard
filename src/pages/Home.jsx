@@ -1,12 +1,12 @@
 import { ThemeProvider, createTheme } from "@mui/material";
-import { HomeSection } from "./components/Section/HomeSection";
+import { HomeSection } from "../components/Section/HomeSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { BottomMenu } from "./components/Navigation/BottomMenu";
+import { BottomMenu } from "../components/Navigation/BottomMenu";
 import { Box } from "@mui/system";
-import { NewProject } from "./components/Section/NewProject";
-import "./index.css";
-import store from "./store/store";
+import { NewProject } from "../components/Section/NewProject";
+import "../index.css";
+import store from "../store/store";
 import { connect } from "react-redux";
 
 const theme = createTheme({
@@ -23,7 +23,9 @@ const theme = createTheme({
   },
 });
 
-export default function App() {
+export default function Home() {
+  console.log(store.dispatch.project.newProject("My New Project"));
+  console.log(store);
   return (
     <Box
       sx={{
