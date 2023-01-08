@@ -25,7 +25,6 @@ export const MainCard = ({ description, priority = 3, date, projectId }) => {
   return (
     <NavLink to={`/project/${projectId}`}>
       <Box>
-        {/* <Link href={`/project/${projectId}`}> */}
         <Card
           sx={{
             borderRadius: "10px",
@@ -176,7 +175,6 @@ export const MainCard = ({ description, priority = 3, date, projectId }) => {
                     },
                   }}
                 />
-                {/* <BorderLinearProgress variant='determinate' value={50}/> */}
               </Box>
             </Box>
           </CardContent>
