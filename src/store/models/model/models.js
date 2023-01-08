@@ -136,3 +136,12 @@ export const project = {
 
   }
 }
+
+export const loading = {
+  state: true,
+  reducers: {
+    setLoading: (state, payload) => {
+      return state = payload
+    }
+  }
+}

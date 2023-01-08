@@ -1,12 +1,26 @@
 import { LinearProgress } from "@mui/material";
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
+import { connect } from "react-redux";
 
-export default function Root() {
+function R({ loading }) {
+  console.log(loading);
   return (
-    <div>
-      <LinearProgress />
+    <motion.div layout>
+      <LinearProgress
+        sx={{
+          display: loading ? "block" : "none",
+        }}
+      />
       <Outlet />
-    </div>
+    </motion.div>
   );
 }
+
+const mapState = (state) => ({
+  loading: state.loading,
+});
+
+const Root = connect(mapState, null)(R);
+export default Root;

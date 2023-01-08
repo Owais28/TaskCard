@@ -8,6 +8,7 @@ import { NewProject } from "../components/Section/NewProject";
 import "../index.css";
 import store from "../store/store";
 import { connect } from "react-redux";
+import { useEffect } from "react";
 
 const theme = createTheme({
   palette: {
@@ -23,9 +24,12 @@ const theme = createTheme({
   },
 });
 
-export default function Home() {
+function HomeWrapper({ setLoading }) {
   console.log(store.dispatch.project.newProject("My New Project"));
   console.log(store);
+
+  useEffect(() => setLoading(false), []);
+
   return (
     <Box
       sx={{
@@ -80,9 +84,9 @@ export default function Home() {
 //   },
 // });
 
-// const mapDispatch = (dispatch) => ({
-//   deleteTask: (taskId) => dispatch.taskManager.deleteTask(taskId),
-// });
+const mapDispatch = (dispatch) => ({
+  setLoading: (loading) => dispatch.loading.setLoading(loading),
+});
 
-// const AppContainer = connect(mapState, mapDispatch)(App);
-// export default AppContainer;
+const Home = connect(null, mapDispatch)(HomeWrapper);
+export default Home;
