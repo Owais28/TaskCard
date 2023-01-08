@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 
 // SeeProject
 function SP({ setLoading }) {
-  useEffect(() => setLoading(false), []);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const param = useParams();
   console.log(param);

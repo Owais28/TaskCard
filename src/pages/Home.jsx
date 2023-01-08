@@ -28,7 +28,9 @@ function HomeWrapper({ setLoading }) {
   console.log(store.dispatch.project.newProject("My New Project"));
   console.log(store);
 
-  useEffect(() => setLoading(false), []);
+  useEffect(() => {
+    typeof setLoading === "function" && setLoading(false);
+  }, []);
 
   return (
     <Box
