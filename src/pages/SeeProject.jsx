@@ -9,6 +9,8 @@ import {
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { SubTask } from "../components/Card/SubTask";
+import { HorizontalFlexContaierWithLink } from "../components/Container/HorizontalFlexContaierWithLink";
 
 // SeeProject
 function SP({ setLoading }) {
@@ -45,7 +47,7 @@ function SP({ setLoading }) {
           /> */}
         </Skeleton>
       </Box>
-      <Stack px="16px" py="16px">
+      <Stack px="16px" py="18px">
         <Box>
           <Typography
             variant="h2"
@@ -60,8 +62,8 @@ function SP({ setLoading }) {
         <Typography
           variant="body1"
           fontFamily={"Rubik"}
-          fontSize={"smaller"}
-          color={"gray"}
+          fontSize={"13px"}
+          color={"rgb(0,0,0,0.6)"}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sed
           eaque repudiandae laboriosam
@@ -75,13 +77,14 @@ function SP({ setLoading }) {
           <Box
             borderRadius={100}
             bgcolor={"#3f51b5"}
-            fontSize={"14px"}
+            fontSize={"13px"}
             color={"white"}
             padding={1.5}
+            fontFamily={"Rubik"}
           >
             80 / 90
           </Box>
-          <Box fontSize={"smaller"} color={"#ccc"}>
+          <Box fontSize={"13px"} fontFamily={"Rubik"} color={"rgb(0,0,0,0.4)"}>
             {date.toLocaleDateString()}
           </Box>
         </Stack>
@@ -112,8 +115,13 @@ function SP({ setLoading }) {
           />
           {/* <BorderLinearProgress variant='determinate' value={50}/> */}
         </Box>
-        <Stack mt={3}></Stack>
       </Stack>
+      <HorizontalFlexContaierWithLink viewTitle={false}>
+        <SubTask />
+        <SubTask />
+        <SubTask />
+        <SubTask />
+      </HorizontalFlexContaierWithLink>
     </Box>
   );
 }
