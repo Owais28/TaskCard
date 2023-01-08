@@ -93,15 +93,15 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <CookiesProvider>
     {/* <ChakraProvider> */}
-    <CookiesProvider>
-      <Provider store={store}>
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
-        <RouterProvider router={router} />
-        {/* </Suspense> */}
-      </Provider>
-    </CookiesProvider>
-    {/* </`ChakraProvider> */}
-  </React.StrictMode>
+    <Provider store={store}>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      <RouterProvider router={router} />
+      {/* </Suspense> */}
+    </Provider>
+    {/* </ChakraProvider> */}
+  </CookiesProvider>
+  // </React.StrictMode>
 );
