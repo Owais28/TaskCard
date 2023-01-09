@@ -8,6 +8,7 @@ export const VerticalFlexConatinerWithLink = ({
   linkText = "See All",
   containerTitle,
   link = "/",
+  ...props
 }) => {
   return (
     <Box width={"100%"}>
