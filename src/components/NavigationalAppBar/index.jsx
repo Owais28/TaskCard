@@ -6,7 +6,7 @@ export const NavigationalAppBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
-        position="sticky"
+        position="fixed"
         sx={{
           top: 0,
           boxShadow: "none",

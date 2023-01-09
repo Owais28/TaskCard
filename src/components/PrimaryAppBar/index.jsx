@@ -13,9 +13,10 @@ import React from "react";
 
 export const PrimaryAppBar = ({ name }) => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} position={"fixed"} top={0} left={0}>
       <AppBar
-        position="static"
+        position="fixed"
+        top={0}
         sx={{
           boxShadow: "none",
           backgroundColor: "#fff",

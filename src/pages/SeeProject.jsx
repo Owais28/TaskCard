@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { SubTask } from "../components/Card/SubTask";
 import { HorizontalFlexContaierWithLink } from "../components/Container/HorizontalFlexContaierWithLink";
+import { NavigationalAppBar } from "../components/NavigationalAppBar";
 
 // SeeProject
 function SP({ setLoading }) {
@@ -36,8 +37,10 @@ function SP({ setLoading }) {
         overflow: "scroll",
         fontFamily: "Rubik",
         paddingBottom: "75px",
+        pt: "56px",
       }}
     >
+      <NavigationalAppBar />
       <Box height="220px">
         <Skeleton height="100%" variant="rectangular">
           {/* <img

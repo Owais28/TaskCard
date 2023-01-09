@@ -4,19 +4,14 @@ import "./styles/globals.css";
 import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
-} from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import Root from "./pages/Root";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const SeeProject = React.lazy(() => import("./pages/SeeProject"));
-
+const ProjectTask = React.lazy(() => import("./pages/ProjectTask"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -88,7 +83,33 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      {
+        path: "/project/:projectId/task/:taskId",
+        element: (
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  display: "flex",
+                  height: "100vh",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <CircularProgress />
+              </div>
+            }
+          >
+            <ProjectTask />
+          </Suspense>
+        ),
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <Root />,
   },
 ]);
 
