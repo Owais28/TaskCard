@@ -103,27 +103,28 @@ const generateRandomId = () => {
 
 const generateEmtyProject = (title) => (
   {
-    "id": "",
-    "title": title,
-    "description": "",
-    "status": "",
-    "dueDate": null,
-    "boards": [
-    ],
-    "taskCount": 10
+    title: title,
+    description: "",
+    cover: "",
+    status: "",
+    dueDate: null,
+    boards: [],
+    taskCount: 0
   }
 )
+
+// project model
 export const project = {
   state: new Map(),
-  reducers: {
 
+  reducers: {
     // reducer to delete a specific project
     deleteProject: (state, id) => {
       state.delete(id)
       return state
     },
 
-    // reducer to create a new project having only title
+    // reducer to create a new project having only title of the project
     newProject: (state, payload) =>
       state.set(generateRandomId(), generateEmtyProject(payload))
     ,
@@ -146,11 +147,26 @@ export const project = {
     addBoard: (state, payload) => {
       const previousState = state.get(payload.id)
       state.set(payload.id, { ...previousState, boards: [...previousState.boards, payload.board] })
-    }
+    },
+
+    // add cover
+    addCover: (state, payload) => {
+
+    },
+
+    effects: (dispatch) => ({
+
+      // add cover
+      addCoverAsync: async (payload, rootState) => {
+        const res = await (await fetch("").then(res => res.json()))
+
+      }
+    })
 
   }
 }
 
+// loading model
 export const loading = {
   state: true,
   reducers: {
