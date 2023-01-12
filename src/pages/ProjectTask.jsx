@@ -5,7 +5,6 @@ import {
   Box,
   Button,
   Divider,
-  Drawer,
   FormControlLabel,
   Radio,
   RadioGroup,
@@ -18,6 +17,7 @@ import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlin
 import { ProjectTaskInput } from "../components/Input/ProjectTaskInput";
 import { VerticalFlexConatinerWithLink } from "../components/Container/VerticalFlexConatinerWithLink";
 import { Task } from "../components/Task/Task";
+import { BottomDrawer } from "../components/Drawer/BottomDrawer";
 
 // ProjectTask
 function PT({ setLoading }) {
@@ -107,40 +107,38 @@ function PT({ setLoading }) {
         <Task />
         <Task />
       </VerticalFlexConatinerWithLink>
-      <Drawer open={toggle} anchor="bottom" onClose={toggleDrawwer}>
-        <Stack borderRadius={"10px"}>
-          <Typography fontWeight={"bold"} p={2} textAlign={"center"}>
-            Status
-          </Typography>
-          <Divider />
-          <Stack p={2}>
-            <Stack
-              direction={"row"}
-              alignItems={"center"}
-              justifyContent={"space-between"}
-            >
-              <Typography>Todo</Typography>
-              <Radio />
-            </Stack>
-            <Stack
-              direction={"row"}
-              alignItems={"center"}
-              justifyContent={"space-between"}
-            >
-              <Typography>Todo</Typography>
-              <Radio />
-            </Stack>
-            <Stack
-              direction={"row"}
-              alignItems={"center"}
-              justifyContent={"space-between"}
-            >
-              <Typography>Todo</Typography>
-              <Radio />
-            </Stack>
+      <BottomDrawer
+        label={"Status"}
+        toggle={toggle}
+        toggleDrawwer={toggleDrawwer}
+      >
+        <Stack p={2}>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <Typography>Todo</Typography>
+            <Radio />
+          </Stack>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <Typography>Todo</Typography>
+            <Radio />
+          </Stack>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <Typography>Todo</Typography>
+            <Radio />
           </Stack>
         </Stack>
-      </Drawer>
+      </BottomDrawer>
       {/* <SwipeableDrawer open anchor="bottom">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
         dicta sit illum quas accusamus quibusdam natus, sunt laborum impedit
