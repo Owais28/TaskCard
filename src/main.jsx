@@ -12,6 +12,8 @@ import Root from "./pages/Root";
 const Home = React.lazy(() => import("./pages/Home"));
 const SeeProject = React.lazy(() => import("./pages/SeeProject"));
 const ProjectTask = React.lazy(() => import("./pages/ProjectTask"));
+const Notification = React.lazy(() => import("./pages/Notification"));
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -102,6 +104,28 @@ const router = createBrowserRouter([
             }
           >
             <ProjectTask />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/notification",
+        element: (
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  display: "flex",
+                  height: "100vh",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <CircularProgress />
+              </div>
+            }
+          >
+            <Notification />
           </Suspense>
         ),
       },

@@ -4,22 +4,28 @@ import {
   Avatar,
   Box,
   IconButton,
+  Popover,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { FiSearch } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
-import React from "react";
+import { motion } from "framer-motion";
 
 export const PrimaryAppBar = ({ name }) => {
   return (
-    <Box sx={{ flexGrow: 1 }} position={"fixed"} top={0} left={0}>
+    <Box
+      sx={{ flexGrow: 1 }}
+      // position={"fixed"} top={0} left={0}
+    >
       <AppBar
-        position="fixed"
+        position="sticky"
         top={0}
         sx={{
           boxShadow: "none",
           backgroundColor: "#fff",
+          zIndex: 100,
+          // borderBottom: "1px solid rgb(0,0,0,0.09)",
         }}
       >
         <Toolbar
@@ -52,6 +58,9 @@ export const PrimaryAppBar = ({ name }) => {
               }}
             >
               <FiSearch fontSize={22} fontWeight="bold" color="black" />
+              {/* <motion.div>
+                <Popover accessKey="name" draggable={true} />
+              </motion.div> */}
             </IconButton>
             <IconButton
               aria-label="notification-button"

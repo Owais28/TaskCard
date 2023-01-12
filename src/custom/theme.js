@@ -6,10 +6,15 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: "Rubik",
-    body1: {
+    // body1: {
+    //   color: 'rgb(0,0,0,0.6)',
+    //   fontSize: '13px',
+    //   // lineHeight: 1.5
+    // },
+    description: {
       color: 'rgb(0,0,0,0.6)',
       fontSize: '13px',
-      // lineHeight: 1.5
+      //   // lineHeight: 1.5
     },
     projectHeading: {
       color: 'black',

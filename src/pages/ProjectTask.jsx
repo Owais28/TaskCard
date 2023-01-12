@@ -1,9 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
-import { Box, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Stack,
+  SwipeableDrawer,
+  Typography,
+} from "@mui/material";
 import { CalendarMonth } from "@mui/icons-material";
-// import CheckCircleOutlineRoundedIcon from "@mui/icons-material/;
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import { ProjectTaskInput } from "../components/Input/ProjectTaskInput";
 import { VerticalFlexConatinerWithLink } from "../components/Container/VerticalFlexConatinerWithLink";
@@ -15,8 +25,32 @@ function PT({ setLoading }) {
     setLoading(false);
   }, []);
 
+  const [toggle, setToggle] = useState(false);
+
+  const toggleDrawwer = (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setToggle(!toggle);
+  };
   return (
-    <Box mt={"56px"}>
+    <Box
+      // mt={"56px"}
+      sx={{
+        width: "100%",
+        maxWidth: "412px",
+        position: "relative",
+        top: 0,
+        minHeight: "100vh",
+        maxHeight: "100vh",
+        overflow: "scroll",
+        fontFamily: "Rubik",
+        paddingBottom: "75px",
+      }}
+    >
       <NavigationalAppBar />
       <Box pt={3} pr={2} pl={2} pb={0.5}>
         <Box
@@ -37,7 +71,7 @@ function PT({ setLoading }) {
         </Box>
       </Box>
       <Stack p={2} gap={2} mb={1}>
-        <Typography variant="body1">
+        <Typography variant="description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam animi
           suscipit vel architecto culpa minima? Aliquam sit cum iure ipsam
           nobis, possimus repellendus dolore velit, deserunt, maiores asperiores
@@ -47,6 +81,7 @@ function PT({ setLoading }) {
           title={"Status"}
           placeholder={"To-do  |  in-Progress  |  Done"}
           value={"Todo"}
+          onClick={toggleDrawwer}
           icon={<CalendarMonth sx={{ color: "grey.500" }} />}
         />
         <ProjectTaskInput
@@ -72,6 +107,46 @@ function PT({ setLoading }) {
         <Task />
         <Task />
       </VerticalFlexConatinerWithLink>
+      <Drawer open={toggle} anchor="bottom" onClose={toggleDrawwer}>
+        <Stack borderRadius={"10px"}>
+          <Typography fontWeight={"bold"} p={2} textAlign={"center"}>
+            Status
+          </Typography>
+          <Divider />
+          <Stack p={2}>
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+            >
+              <Typography>Todo</Typography>
+              <Radio />
+            </Stack>
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+            >
+              <Typography>Todo</Typography>
+              <Radio />
+            </Stack>
+            <Stack
+              direction={"row"}
+              alignItems={"center"}
+              justifyContent={"space-between"}
+            >
+              <Typography>Todo</Typography>
+              <Radio />
+            </Stack>
+          </Stack>
+        </Stack>
+      </Drawer>
+      {/* <SwipeableDrawer open anchor="bottom">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        dicta sit illum quas accusamus quibusdam natus, sunt laborum impedit
+        explicabo blanditiis excepturi culpa consectetur quia odit nemo eos
+        maiores praesentium!
+      </SwipeableDrawer> */}
     </Box>
   );
 }

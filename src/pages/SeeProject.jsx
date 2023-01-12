@@ -27,17 +27,15 @@ function SP({ setLoading }) {
   return (
     <Box
       sx={{
-        width: "100vw",
+        width: "100%",
         maxWidth: "412px",
         position: "relative",
         top: 0,
-        // minHeight: '100vh',
-        height: "100vh",
+        minHeight: "100vh",
         maxHeight: "100vh",
         overflow: "scroll",
         fontFamily: "Rubik",
         paddingBottom: "75px",
-        pt: "56px",
       }}
     >
       <NavigationalAppBar />
@@ -63,10 +61,10 @@ function SP({ setLoading }) {
           </Typography>
         </Box>
         <Typography
-          variant="body1"
-          fontFamily={"Rubik"}
-          fontSize={"13px"}
-          color={"rgb(0,0,0,0.6)"}
+          variant="description"
+          // fontFamily={"Rubik"}
+          // fontSize={"13px"}
+          // color={"rgb(0,0,0,0.6)"}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sed
           eaque repudiandae laboriosam

@@ -116,6 +116,7 @@ const generateEmtyProject = (title) => (
 export const project = {
   state: new Map(),
   reducers: {
+
     // reducer to delete a specific project
     deleteProject: (state, id) => {
       state.delete(id)
@@ -132,6 +133,19 @@ export const project = {
       const previousState = state.get(payload.id)
       state.set(payload.id, { ...previousState, title: payload.title })
       return state
+    },
+
+    // set due date
+    setDueDate: (state, payload) => {
+      const previousState = state.get(payload.id)
+      state.set(payload.id, { ...previousState, dueDate: payload.date })
+      return state
+    },
+
+    // add new board
+    addBoard: (state, payload) => {
+      const previousState = state.get(payload.id)
+      state.set(payload.id, { ...previousState, boards: [...previousState.boards, payload.board] })
     }
 
   }

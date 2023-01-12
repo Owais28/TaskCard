@@ -1,4 +1,3 @@
-import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { MainCard } from "../Card/Maincard";
 import { PrimaryAppBar } from "../PrimaryAppBar";
@@ -7,25 +6,14 @@ import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexConta
 import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatinerWithLink";
 import { Task } from "../Task/Task";
 import { connect } from "react-redux";
+import { MobileContainer } from "../Container/MobileContainer";
 
 const Home = ({ tasks, taskCount, deleteTask }) => {
   // console.log(tasks);
   const [tasks1, setTask] = useState(taskCount);
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: "412px",
-        position: "relative",
-        top: 0,
-        minHeight: "100vh",
-        maxHeight: "100vh",
-        overflow: "scroll",
-        fontFamily: "Rubik",
-        paddingBottom: "75px",
-      }}
-    >
+    <MobileContainer>
       <PrimaryAppBar />
       {/* <MainFeed> */}
       <HorizontalFlexContaierWithLink
@@ -74,7 +62,7 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
           />
         ))}
       </VerticalFlexConatinerWithLink>
-    </Box>
+    </MobileContainer>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Box, Paper, Button } from "@mui/material";
+import { Box, Paper, Button, SwipeableDrawer } from "@mui/material";
 import {
   AddCircleRounded,
   HomeRounded,
@@ -161,8 +161,8 @@ export const BottomMenu = () => {
             flex: 1,
             height: "100%",
           }}
-        // onClick={(event) =>
-        //   handleClick(3)}
+          // onClick={(event) =>
+          //   handleClick(3)}
         >
           <Button
             color="blue"
@@ -201,6 +201,7 @@ export const BottomMenu = () => {
           </BottomButton>
         </Box>
       </Paper>
+      <SwipeableDrawer />
     </Box>
   );
 };
