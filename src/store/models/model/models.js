@@ -1,21 +1,6 @@
-export const count = {
-  state: 0, // initial state
-  reducers: {
-    // handle state changes with pure functions
-    increment(state, payload) {
-      return state + payload;
-    },
-  },
-  effects: (dispatch) => ({
-    // handle state changes with impure functions.
-    // use async/await for async actions
-    async incrementAsync(payload, rootState) {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      dispatch.count.increment(payload);
-    },
-  }),
-};
+import { generateRandomId, generateEmtyProject } from "../../../utils"
 
+// task manager
 export const taskManager = {
   state: {
     tasks: [{
@@ -69,62 +54,22 @@ export const taskManager = {
   }
 }
 
-/*
-{
-    "id": "",
-    "title": "saa",
-    "description": "",
-    "status": "to-do",
-    "dueDate": "2023-01-05T16:36:12.897Z",
-    "boards": [
-        {
-            "id": "",
-            "title": "saa",
-            "description": "",
-            "status": "to-do",
-            "dueDate": "2023-01-05T16:36:12.897Z",
-            "subTask": [
-                {
-                    "id": "",
-                    "title": "",
-                    "dueDate": "2023-01-05T16:36:12.897Z"
-                }
-            ]
-        }
-    ],
-    "taskCount": 10
-}
-*/
 
-// function that generate random alphanumeric 
-const generateRandomId = () => {
-  return (Math.random().toString(15).substring(2))
-}
-
-const generateEmtyProject = (title) => (
-  {
-    title: title,
-    description: "",
-    cover: "",
-    status: "",
-    dueDate: null,
-    boards: [],
-    taskCount: 0
-  }
-)
 
 // project model
 export const project = {
+  // Map for all projects
   state: new Map(),
 
+  // reducers
   reducers: {
-    // reducer to delete a specific project
+    // delete a specific project
     deleteProject: (state, id) => {
       state.delete(id)
       return state
     },
 
-    // reducer to create a new project having only title of the project
+    // create a new project having only title of the project
     newProject: (state, payload) =>
       state.set(generateRandomId(), generateEmtyProject(payload))
     ,
@@ -154,6 +99,7 @@ export const project = {
 
     },
 
+    // Effects
     effects: (dispatch) => ({
 
       // add cover

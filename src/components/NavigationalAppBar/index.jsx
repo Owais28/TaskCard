@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import WestRoundedIcon from "@mui/icons-material/WestRounded";
 
@@ -42,6 +41,41 @@ export const NavigationalAppBar = () => {
           >
             New Project
           </Typography>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+};
+
+export const NavigationalAppBar2 = () => {
+  return (
+    <Box sx={{ flexGrow: 1 }} bgcolor="transparent">
+      <AppBar
+        position="relative"
+        sx={{
+          top: 0,
+          boxShadow: "none",
+          backgroundColor: "transparent",
+          borderBottom: "1px solid whitesmoke",
+        }}
+      >
+        <Toolbar
+          sx={{
+            px: "8px",
+          }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              // fontSize : '10px'
+            }}
+          >
+            <IconButton color="blue" aria-label="back-button">
+              <WestRoundedIcon fontSize={"small"} color="blue" />
+            </IconButton>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>

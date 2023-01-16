@@ -1,6 +1,7 @@
-import { Box, Checkbox, Skeleton, Typography } from "@mui/material";
-import React, { useState, useMemo } from "react";
+import { Box, Checkbox, Typography } from "@mui/material";
+import { useState } from "react";
 import { motion } from "framer-motion";
+
 export const Task = ({ id, deleteTask, setTask }) => {
   const [checked, setChecked] = useState(false);
 

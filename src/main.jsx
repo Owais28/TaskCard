@@ -1,18 +1,40 @@
-import React, { Suspense } from "react";
+import { Suspense as ReactSuspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import "./styles/globals.css";
 import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
-import store from "./store/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import "./styles/globals.css";
+import store from "./store/store";
 
 import { CircularProgress } from "@mui/material";
 import Root from "./pages/Root";
 
-const Home = React.lazy(() => import("./pages/Home"));
-const SeeProject = React.lazy(() => import("./pages/SeeProject"));
-const ProjectTask = React.lazy(() => import("./pages/ProjectTask"));
-const Notification = React.lazy(() => import("./pages/Notification"));
+const Home = lazy(() => import("./pages/Home"));
+const SeeProject = lazy(() => import("./pages/SeeProject"));
+const ProjectTask = lazy(() => import("./pages/ProjectTask"));
+const Notification = lazy(() => import("./pages/Notification"));
+
+// suspense component
+const Suspense = ({ children }) => (
+  <ReactSuspense
+    fallback={
+      <div
+        style={{
+          display: "flex",
+          height: "100vh",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </div>
+    }
+  >
+    {children}
+  </ReactSuspense>
+);
 
 const router = createBrowserRouter([
   {
@@ -22,21 +44,7 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  display: "flex",
-                  height: "100vh",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CircularProgress />
-              </div>
-            }
-          >
+          <Suspense>
             <Home />
           </Suspense>
         ),
@@ -44,65 +52,15 @@ const router = createBrowserRouter([
       {
         path: "project/:projectId",
         element: (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  display: "flex",
-                  height: "100vh",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CircularProgress />
-              </div>
-            }
-          >
+          <Suspense>
             <SeeProject />
-          </Suspense>
-        ),
-      },
-      {
-        path: "*",
-        element: (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  display: "flex",
-                  height: "100vh",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CircularProgress />
-              </div>
-            }
-          >
-            <Home />
           </Suspense>
         ),
       },
       {
         path: "/project/:projectId/task/:taskId",
         element: (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  display: "flex",
-                  height: "100vh",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CircularProgress />
-              </div>
-            }
-          >
+          <Suspense>
             <ProjectTask />
           </Suspense>
         ),
@@ -110,22 +68,16 @@ const router = createBrowserRouter([
       {
         path: "/notification",
         element: (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  display: "flex",
-                  height: "100vh",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <CircularProgress />
-              </div>
-            }
-          >
+          <Suspense>
             <Notification />
+          </Suspense>
+        ),
+      },
+      {
+        path: "*",
+        element: (
+          <Suspense>
+            <Home />
           </Suspense>
         ),
       },

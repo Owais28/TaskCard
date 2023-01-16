@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import "swiper/css";
 import { MainCard } from "../Card/Maincard";
 import { PrimaryAppBar } from "../PrimaryAppBar";
-import "swiper/css";
 import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexContaierWithLink";
 import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatinerWithLink";
 import { Task } from "../Task/Task";
-import { connect } from "react-redux";
 import { MobileContainer } from "../Container/MobileContainer";
+import { connect } from "react-redux";
 
 const Home = ({ tasks, taskCount, deleteTask }) => {
-  // console.log(tasks);
+  console.log(tasks);
   const [tasks1, setTask] = useState(taskCount);
 
   return (

@@ -1,8 +1,4 @@
-// import SignalCellularAlt2BarRoundedIcon from "@mui/icons-material/SignalCellularAlt2BarRounded";
-// import SignalCellularAltRoundedIcon from "@mui/icons-material/SignalCellularAltRounded";
-// import SignalCellularAlt1BarRoundedIcon from "@mui/icons-material/SignalCellularAlt1BarRounded";
 import { Chip, Box } from "@mui/material";
-// import { color } from "@mui/system";
 
 export const PriorityChip = ({ priority }) => {
   if (priority === 1) {
@@ -21,20 +17,6 @@ export const PriorityChip = ({ priority }) => {
             // marginLeft : '-10px'
           }}
           variant="filled"
-          // icon={
-          //   // <Box>
-
-          //     <SignalCellularAltRoundedIcon
-          //       fontSize='small'
-          //       sx={{
-          //         // height : '100px'
-          //         // marginRight: '-10px',
-          //         // '& '
-
-          //       }}
-          //     />
-          //   // </Box>
-          // }
         />
       </Box>
     );
@@ -54,20 +36,6 @@ export const PriorityChip = ({ priority }) => {
             // marginLeft : '-10px'
           }}
           variant="filled"
-          // icon={
-          //   <Box>
-
-          //     <SignalCellularAlt2BarRoundedIcon
-          //       fontSize='small'
-          //       sx={{
-          //         // height : '100px'
-          //         marginRight: '-5px',
-          //         color: 'purple'
-
-          //       }}
-          //     />
-          //   </Box>
-          // }
         />
       </Box>
     );
@@ -87,20 +55,6 @@ export const PriorityChip = ({ priority }) => {
             // marginLeft : '-10px'
           }}
           variant="filled"
-          // icon={
-          //   <Box>
-
-          //     <SignalCellularAlt1BarRoundedIcon
-          //       fontSize='small'
-          //       sx={{
-          //         // height : '100px'
-          //         marginRight: '-10px',
-          //         color: 'teal'
-
-          //       }}
-          //     />
-          //   </Box>
-          // }
         />
       </Box>
     );
@@ -120,20 +74,6 @@ export const PriorityChip = ({ priority }) => {
             // marginLeft : '-10px'
           }}
           variant="filled"
-          // icon={
-          //   <Box>
-
-          //     <SignalCellularAlt2BarRoundedIcon
-          //       fontSize='small'
-          //       sx={{
-          //         // height : '100px'
-          //         marginRight: '-10px',
-          //         color: 'teal'
-
-          //       }}
-          //     />
-          //   </Box>
-          // }
         />
       </Box>
     );

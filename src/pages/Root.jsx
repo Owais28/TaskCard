@@ -1,12 +1,13 @@
 import { LinearProgress, ThemeProvider } from "@mui/material";
-import React from "react";
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import { connect } from "react-redux";
 import { theme } from "../custom/theme";
 
 function R({ loading }) {
+  console.log("Page : Root");
   console.log(loading);
+
   return (
     <motion.div layout>
       <ThemeProvider theme={theme}>

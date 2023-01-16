@@ -1,17 +1,15 @@
-import { SearchOffRounded } from "@mui/icons-material";
 import {
   AppBar,
   Avatar,
   Box,
   IconButton,
-  Popover,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { FiSearch } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
-import { motion } from "framer-motion";
 
+// PrimaryAppBar
 export const PrimaryAppBar = ({ name }) => {
   return (
     <Box

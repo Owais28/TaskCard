@@ -1,4 +1,3 @@
-import React from "react";
 import { Box } from "@mui/material";
 import { ViewTitle } from "../TitleBar/ViewTitle";
 import { motion } from "framer-motion";

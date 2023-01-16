@@ -21,6 +21,8 @@ import { BottomDrawer } from "../components/Drawer/BottomDrawer";
 
 // ProjectTask
 function PT({ setLoading }) {
+  console.log("Page : ProjectTask");
+
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -66,7 +68,7 @@ function PT({ setLoading }) {
           <img
             src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YWJzdHJhY3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
             alt=""
-            class="task-img"
+            className="task-img"
           />
         </Box>
       </Box>
@@ -139,12 +141,6 @@ function PT({ setLoading }) {
           </Stack>
         </Stack>
       </BottomDrawer>
-      {/* <SwipeableDrawer open anchor="bottom">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-        dicta sit illum quas accusamus quibusdam natus, sunt laborum impedit
-        explicabo blanditiis excepturi culpa consectetur quia odit nemo eos
-        maiores praesentium!
-      </SwipeableDrawer> */}
     </Box>
   );
 }

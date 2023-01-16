@@ -1,6 +1,4 @@
-import React from "react";
 import { Stack, Icon, Input, Typography } from "@mui/material";
-import { CalendarMonth } from "@mui/icons-material";
 
 export const ProjectTaskInput = ({
   title,

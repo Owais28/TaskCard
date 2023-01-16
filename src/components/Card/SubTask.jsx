@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import { CiSquarePlus } from "react-icons/ci";
 import { SmallSubTask } from "./SmallSubTask";

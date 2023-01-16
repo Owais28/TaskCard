@@ -1,5 +1,4 @@
-import React from "react";
-import { Drawer, Stack, Typography, Divider, Radio } from "@mui/material";
+import { Drawer, Stack, Typography, Divider } from "@mui/material";
 
 export const BottomDrawer = ({ label, children, toggle, toggleDrawwer }) => {
   return (

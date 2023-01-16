@@ -1,14 +1,13 @@
-import { ThemeProvider, createTheme } from "@mui/material";
-import { HomeSection } from "../components/Section/HomeSection";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { BottomMenu } from "../components/Navigation/BottomMenu";
-import { Box } from "@mui/system";
-import { NewProject } from "../components/Section/NewProject";
-import "../index.css";
-import store from "../store/store";
-import { connect } from "react-redux";
 import { useEffect } from "react";
+import { HomeSection } from "../components/Section/HomeSection";
+import { BottomMenu } from "../components/Navigation/BottomMenu";
+import { NewProject } from "../components/Section/NewProject";
+import "swiper/css";
+import "../index.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { Box } from "@mui/material";
+import { connect } from "react-redux";
 
 const theme = createTheme({
   palette: {
@@ -25,8 +24,9 @@ const theme = createTheme({
 });
 
 function HomeWrapper({ setLoading }) {
-  console.log(store.dispatch.project.newProject("My New Project"));
-  console.log(store);
+  // console.log(store.dispatch.project.newProject("My New Project"));
+  // console.log(store);
+  console.log("Page : Home");
 
   useEffect(() => {
     typeof setLoading === "function" && setLoading(false);

@@ -1,5 +1,4 @@
 import { Box, Divider, Input } from "@mui/material";
-import React from "react";
 import { NavigationalAppBar } from "../NavigationalAppBar";
 
 export const NewProject = () => {

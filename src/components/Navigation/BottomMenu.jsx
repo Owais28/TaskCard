@@ -1,4 +1,14 @@
-import { Box, Paper, Button, SwipeableDrawer } from "@mui/material";
+import { useState } from "react";
+import {
+  Box,
+  Paper,
+  Button,
+  SwipeableDrawer,
+  Popover,
+  Typography,
+  Stack,
+  Popper,
+} from "@mui/material";
 import {
   AddCircleRounded,
   HomeRounded,
@@ -6,9 +16,8 @@ import {
   SettingsRounded,
 } from "@mui/icons-material";
 import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
-import { useState } from "react";
+
 import { BottomButton } from "../Button/BottomButton";
-// import Link from "next/link";
 import { useSwiper } from "swiper/react";
 
 const styles = {
@@ -111,6 +120,20 @@ export const BottomMenu = () => {
     }
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+  // const [open, setOpen] = useState(false);
+
+  const handlePopperClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const handlePopperClose = (event) => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
   return (
     <Box>
       <Paper
@@ -172,9 +195,37 @@ export const BottomMenu = () => {
               height: "100%",
               borderRadius: 0,
             }}
+            aria-describedby={id}
+            onClick={handlePopperClick}
           >
             <AddCircleRounded fontSize="large" />
           </Button>
+          <Popper
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handlePopperClose}
+            placement="top"
+            disablePortal={false}
+            modifiers={[
+              {
+                name: "arrow",
+                enabled: true,
+              },
+            ]}
+            sx={{
+              zIndex: 10,
+            }}
+          >
+            <Stack p={2} borderRadius={"lg"} bgcolor={"red"} zIndex={10}>
+              <Box>
+                <Typography>Project</Typography>
+              </Box>
+              <Box>
+                <Typography>Project</Typography>
+              </Box>
+            </Stack>
+          </Popper>
         </Box>
 
         {/* Messages Button */}

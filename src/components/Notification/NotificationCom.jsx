@@ -1,5 +1,4 @@
 import { Avatar, Box, Button, Stack, Typography } from "@mui/material";
-import React from "react";
 
 export const NotificationCom = () => {
   return (

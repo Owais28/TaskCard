@@ -1,9 +1,11 @@
-import { Box, Stack, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
+import { Box, Stack, Typography } from "@mui/material";
 import { NotificationCom } from "../components/Notification/NotificationCom";
 
 function N({ setLoading }) {
+  console.log("Page : Notification");
+
   useEffect(() => {
     setLoading(false);
   }, []);

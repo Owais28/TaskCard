@@ -5,16 +5,20 @@ import {
   Typography,
   LinearProgress,
 } from "@mui/material";
-// import { indigo } from "@mui/material/colors";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { SubTask } from "../components/Card/SubTask";
 import { HorizontalFlexContaierWithLink } from "../components/Container/HorizontalFlexContaierWithLink";
-import { NavigationalAppBar } from "../components/NavigationalAppBar";
+import {
+  NavigationalAppBar,
+  NavigationalAppBar2,
+} from "../components/NavigationalAppBar";
 
 // SeeProject
 function SP({ setLoading }) {
+  console.log("Page : SeeProject");
+
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -38,6 +42,7 @@ function SP({ setLoading }) {
         paddingBottom: "75px",
       }}
     >
+      <NavigationalAppBar2 />
       <NavigationalAppBar />
       <Box height="220px">
         <Skeleton height="100%" variant="rectangular">

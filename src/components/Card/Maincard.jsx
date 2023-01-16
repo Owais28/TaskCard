@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import {
   Card,
   CardContent,
@@ -6,10 +8,11 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { PriorityChip } from "../Chip/PriorityChip";
 import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
+
+import { PriorityChip } from "../Chip/PriorityChip";
 import { DetailWithIcon } from "../Chip/DetailWithIcon";
+
 import { IoCalendarOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
