@@ -17,7 +17,6 @@ export const NewProject = () => {
         paddingBottom: "75px",
       }}
     >
-      <NavigationalAppBar />
       <Box px={"18px"} py={1} width={"100%"} height={"100%"}>
         <Box>
           <Input
