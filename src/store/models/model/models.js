@@ -40,7 +40,7 @@ export const taskManager = {
       id: 10
     },
     ],
-    totalTaszks: 3
+    totalTaszks: 10
   },
   reducers: {
     deleteTask(state, payload) {
@@ -53,7 +53,6 @@ export const taskManager = {
     }
   }
 }
-
 
 
 // project model

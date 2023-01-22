@@ -42,7 +42,7 @@ function SP({ setLoading }) {
         paddingBottom: "75px",
       }}
     >
-      <NavigationalAppBar2 />
+      {/* <NavigationalAppBar2 /> */}
       <NavigationalAppBar />
       <Box height="220px">
         <Skeleton height="100%" variant="rectangular">
