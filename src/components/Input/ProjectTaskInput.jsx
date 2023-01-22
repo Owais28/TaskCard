@@ -8,7 +8,7 @@ export const ProjectTaskInput = ({
   onClick,
 }) => {
   return (
-    <Stack direction={"row"} onClick={onClick}>
+    <Stack direction={"row"}>
       <Stack direction={"row"} alignItems={"center"} width={"60%"}>
         <Icon sx={{ mr: 1 }}>{icon}</Icon>
         <Typography variant="description">{title}</Typography>
@@ -23,6 +23,7 @@ export const ProjectTaskInput = ({
           fontFamily: "Rubik",
           fontSize: "13px",
         }}
+        onClick={(e) => onClick}
       />
     </Stack>
   );
