@@ -9,29 +9,26 @@ import {
   Fade,
   Stack,
   Icon,
+  Divider,
+  styled,
+  FormControl,
+  InputBase,
 } from "@mui/material";
 import {
   AddCircleRounded,
+  ContactSupport,
   HomeRounded,
   NotificationsRounded,
   SettingsRounded,
 } from "@mui/icons-material";
+import { grey } from "@mui/material/colors";
+
 import FormatListBulletedRoundedIcon from "@mui/icons-material/FormatListBulletedRounded";
 import ListAltRoundedIcon from "@mui/icons-material/ListAltRounded";
 // import { AiOutlineProject } from "react-icons/ai";
 
 import { BottomButton } from "../Button/BottomButton";
 import { useSwiper } from "swiper/react";
-
-// const styles = {
-//   root: {
-//     color: "green",
-//     "&$selected": {
-//       color: "red",
-//     },
-//   },
-//   selected: {},
-// };
 
 const style = {
   position: "absolute",
@@ -51,6 +48,16 @@ const style = {
 export const BottomMenu = () => {
   const swiper = useSwiper();
 
+  const Puller = styled(Box)(({ theme }) => ({
+    width: 30,
+    height: 6,
+    backgroundColor: theme.palette.mode === "light" ? grey[300] : grey[900],
+    borderRadius: 3,
+    position: "absolute",
+    top: 8,
+    left: "calc(50% - 15px)",
+  }));
+
   // state that keep track of selected section
   const [selectedButton, setSelectedButton] = useState({
     home: true,
@@ -63,6 +70,20 @@ export const BottomMenu = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [projectDrawer, setProjectDrawer] = useState(false);
+
+  const toggleProjectDrawer = (open) => (event) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setOpen(false);
+    setProjectDrawer(open);
+  };
 
   // function that run un SlideChange event
   swiper.on("slideChange", (swiper) => handleSlideChange(swiper.activeIndex));
@@ -77,7 +98,7 @@ export const BottomMenu = () => {
     document.title = "TaskCard | " + title;
   };
 
-  // function that change color of buttons on the basis of active active slide
+  // function that change color of buttons on the basis of active slide
   const handleClick = (choice) => {
     switch (choice) {
       case 1:
@@ -102,16 +123,15 @@ export const BottomMenu = () => {
         swiper.slideTo(1);
         setTitle("Project");
         break;
-        // case 3:
-        //   setSelectedButton({
-        //     home: false,
-        //     task: false,
-        //     newTaks: true,
-        //     notifications: false,
-        //     settings: false
-        //   });
+      // case 3:
+      //   setSelectedButton({
+      //     home: false,
+      //     task: false,
+      //     newTaks: true,
+      //     notifications: false,
+      //     settings: false
+      //   });
 
-        break;
       case 3:
         setSelectedButton({
           home: false,
@@ -267,11 +287,11 @@ export const BottomMenu = () => {
                 p={2}
                 // boxShadow={"lg"}
               >
-                {/* <Button fullWidth> */}
                 <Stack
                   direction={"row"}
                   alignItems={"center"}
                   justifyContent={"space-between"}
+                  onClick={toggleProjectDrawer(true)}
                 >
                   <Typography
                     color={"rgb(0,0,0,0.7)"}
@@ -289,12 +309,11 @@ export const BottomMenu = () => {
                     />
                   </Icon>
                 </Stack>
-                {/* </Button> */}
                 <Stack
                   direction={"row"}
                   alignItems={"center"}
                   justifyContent={"space-between"}
-                  sx={{ mt: 2 }}
+                  mt={1}
                 >
                   <Typography color={"rgb(0,0,0,0.7)"} variant="body2">
                     Task
@@ -335,7 +354,76 @@ export const BottomMenu = () => {
           </BottomButton>
         </Box>
       </Paper>
-      <SwipeableDrawer />
+      <SwipeableDrawer
+        anchor="bottom"
+        open={projectDrawer}
+        onClose={toggleProjectDrawer(false)}
+        onOpen={toggleProjectDrawer(true)}
+        variant="temporary"
+        ModalProps={{
+          keepMounted: false,
+        }}
+        // swipeAreaWidth={57}
+        sx={{ borderRadius: 2, backgroundColor: "transparent" }}
+      >
+        <Box p={2} borderRadius={1}>
+          <Typography
+            mb={2}
+            mt={2}
+            textAlign="center"
+            fontFamily={"Rubik"}
+            fontWeight={"bold"}
+          >
+            New Project
+          </Typography>
+          <Divider sx={{ color: "grey.50", bgcolor: "gray.50" }} />
+          <Puller />
+          <Stack gap={3} mt={2}>
+            <InputBase
+              sx={{
+                flex: 1,
+                bgcolor: "grey.50",
+                p: 2,
+                fontFamily: "Rubik",
+                borderRadius: 2.5,
+                "& ::placeholder": {
+                  fontSize: "small",
+                  fontFamily: "Rubik",
+                },
+              }}
+              placeholder="Project Name"
+              inputProps={{ "aria-label": "search google maps" }}
+            />
+            <InputBase
+              sx={{
+                flex: 1,
+                bgcolor: "grey.50",
+                p: 2,
+                borderRadius: 2.5,
+                fontFamily: "Rubik",
+                "& ::placeholder": {
+                  fontSize: "small",
+                  fontFamily: "Rubik",
+                },
+              }}
+              placeholder="Priority"
+              inputProps={{ "aria-label": "search google maps" }}
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              sx={{
+                textDecorationStyle: "dotted",
+                py: 1.5,
+                borderRadius: 100,
+                bgcolor: "black",
+              }}
+            >
+              Create Project
+            </Button>
+          </Stack>
+        </Box>
+      </SwipeableDrawer>
     </Box>
   );
 };
