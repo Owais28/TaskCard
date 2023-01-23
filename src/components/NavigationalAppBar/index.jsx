@@ -1,7 +1,12 @@
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import WestRoundedIcon from "@mui/icons-material/WestRounded";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const NavigationalAppBar = () => {
+  let navigate = useNavigate();
+
+  // useEffect((navigate = useNavigation()), []);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -26,7 +31,11 @@ export const NavigationalAppBar = () => {
               // fontSize : '10px'
             }}
           >
-            <IconButton color="black" aria-label="back-button">
+            <IconButton
+              color="black"
+              aria-label="back-button"
+              onClick={(e) => navigate("/")}
+            >
               <WestRoundedIcon fontSize={"small"} />
             </IconButton>
           </Box>

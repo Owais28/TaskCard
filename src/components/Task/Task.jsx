@@ -3,8 +3,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export const Task = ({ id, deleteTask, setTask }) => {
-  const [checked, setChecked] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.7 }}

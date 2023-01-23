@@ -20,8 +20,9 @@ import { Task } from "../components/Task/Task";
 import { BottomDrawer } from "../components/Drawer/BottomDrawer";
 
 // ProjectTask
-function PT({ setLoading }) {
+function PT({ setLoading, tasks, deleteTask }) {
   console.log("Page : ProjectTask");
+  const [task1, setTask] = useState(tasks && tasks.length);
 
   useEffect(() => {
     setLoading(false);
@@ -95,19 +96,17 @@ function PT({ setLoading }) {
       </Stack>
       <VerticalFlexConatinerWithLink
         mt={1}
-        containerTitle={"Sub-Task (14)"}
+        containerTitle={`Sub-Task (${task1})`}
         color={"black"}
       >
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
+        {tasks.map((task) => (
+          <Task
+            id={task.id}
+            key={task.id}
+            setTask={setTask}
+            deleteTask={deleteTask}
+          />
+        ))}
       </VerticalFlexConatinerWithLink>
       <BottomDrawer
         label={"Status"}
@@ -128,7 +127,7 @@ function PT({ setLoading }) {
             alignItems={"center"}
             justifyContent={"space-between"}
           >
-            <Typography>Todo</Typography>
+            <Typography>In-Progress</Typography>
             <Radio />
           </Stack>
           <Stack
@@ -136,7 +135,7 @@ function PT({ setLoading }) {
             alignItems={"center"}
             justifyContent={"space-between"}
           >
-            <Typography>Todo</Typography>
+            <Typography>Completed</Typography>
             <Radio />
           </Stack>
         </Stack>
@@ -145,9 +144,15 @@ function PT({ setLoading }) {
   );
 }
 
-const mapDispatch = (dispatch) => ({
-  setLoading: (loading) => dispatch.loading.setLoading(loading),
+const mapState = (state) => ({
+  tasks: state.taskManager.tasks,
+  taskCount: state.taskManager.totalTasks,
 });
 
-const ProjectTask = connect(null, mapDispatch)(PT);
+const mapDispatch = (dispatch) => ({
+  setLoading: (loading) => dispatch.loading.setLoading(loading),
+  deleteTask: (id) => dispatch.taskManager.deleteTask(id),
+});
+
+const ProjectTask = connect(mapState, mapDispatch)(PT);
 export default ProjectTask;
