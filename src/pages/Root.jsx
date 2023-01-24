@@ -3,10 +3,16 @@ import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import { connect } from "react-redux";
 import { theme } from "../custom/theme";
+import { useEffect } from "react";
 
 function R({ loading }) {
   console.log("Page : Root");
   console.log(loading);
+
+  // useEffect(
+  //   // (() => Notification.requestPermission().then((req) => alert(req)))(),
+  //   []
+  // );
 
   return (
     <motion.div layout>
