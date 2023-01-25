@@ -3,7 +3,7 @@ import WestRoundedIcon from "@mui/icons-material/WestRounded";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-export const NavigationalAppBar = () => {
+export const NavigationalAppBar = ({ title }) => {
   let navigate = useNavigate();
 
   // useEffect((navigate = useNavigation()), []);
@@ -48,7 +48,7 @@ export const NavigationalAppBar = () => {
             fontSize={19}
             fontWeight="bold"
           >
-            New Project
+            {title ? title : "Unknown"}
           </Typography>
         </Toolbar>
       </AppBar>

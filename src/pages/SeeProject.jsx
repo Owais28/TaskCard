@@ -10,13 +10,10 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { SubTask } from "../components/Card/SubTask";
 import { HorizontalFlexContaierWithLink } from "../components/Container/HorizontalFlexContaierWithLink";
-import {
-  NavigationalAppBar,
-  NavigationalAppBar2,
-} from "../components/NavigationalAppBar";
+import { NavigationalAppBar } from "../components/NavigationalAppBar";
 
 // SeeProject
-function SP({ setLoading }) {
+function SP({ setLoading, title, status, description }) {
   console.log("Page : SeeProject");
 
   useEffect(() => {
@@ -42,7 +39,6 @@ function SP({ setLoading }) {
         paddingBottom: "75px",
       }}
     >
-      {/* <NavigationalAppBar2 /> */}
       <NavigationalAppBar />
       <Box height="220px">
         <Skeleton height="100%" variant="rectangular">
@@ -124,9 +120,8 @@ function SP({ setLoading }) {
       </Stack>
       <HorizontalFlexContaierWithLink viewTitle={false}>
         <SubTask />
-        {/* <SubTask /> */}
         <SubTask />
-        {/* <SubTask /> */}
+        <SubTask />
       </HorizontalFlexContaierWithLink>
     </Box>
   );

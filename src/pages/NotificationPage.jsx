@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import { Box, Stack, Typography } from "@mui/material";
-import { NotificationCom } from "../components/Notification/NotificationCom";
+import { Stack, Typography } from "@mui/material";
+import { NotificationComponent } from "../components/Notification/NotificationComponent";
+import { NavigationalAppBar } from "../components/NavigationalAppBar";
+import { MobileContainer } from "../components/Container/MobileContainer";
 
 function N({ setLoading }) {
   console.log("Page : Notification");
@@ -11,29 +13,17 @@ function N({ setLoading }) {
   }, []);
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: "412px",
-        position: "relative",
-        top: 0,
-        minHeight: "100vh",
-        maxHeight: "100vh",
-        overflow: "scroll",
-        fontFamily: "Rubik",
-        paddingBottom: "75px",
-      }}
-    >
+    <MobileContainer>
+      <NavigationalAppBar />
       <Stack p={2}>
         <Typography fontWeight={"bold"} color={"black"}>
           Today
         </Typography>
-        {[...new Array(50)].map((item, index) => (
-          <NotificationCom />
+        {[...new Array(20)].map((item, index) => (
+          <NotificationComponent />
         ))}
-        {/* <NotificationCom /> */}
       </Stack>
-    </Box>
+    </MobileContainer>
   );
 }
 

@@ -20,45 +20,25 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
         containerTitle={"Recent Project"}
         link={"/"}
       >
-        <MainCard
-          priority={1}
-          projectId={222}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
-        <MainCard
-          priority={2}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
-        <MainCard
-          priority={3}
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
-        <MainCard
-          description={
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-          }
-        />
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+          <MainCard
+            key={index}
+            priority={1}
+            projectId={item}
+            description={
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
+            }
+          />
+        ))}
       </HorizontalFlexContaierWithLink>
       <VerticalFlexConatinerWithLink link="/" containerTitle={"Today Task"}>
-        {/* <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-      <Task /> */}
         {tasks.map((task, index) => (
           <Task
             id={task.id}
             key={task.id}
             setTask={setTask}
             deleteTask={deleteTask}
+            title={task.task}
           />
         ))}
       </VerticalFlexConatinerWithLink>
