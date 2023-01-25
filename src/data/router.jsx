@@ -1,35 +1,15 @@
 import Root from "../pages/Root";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { Suspense as ReactSuspense } from "react";
-import { CircularProgress } from "@mui/material";
+import { withSuspense } from "../components/WithSuspense";
 
+// Pages
 const Home = lazy(() => import("../pages/HomePage"));
 const SeeProject = lazy(() => import("../pages/SeeProject"));
 const ProjectTask = lazy(() => import("../pages/ProjectTask"));
 const Notification = lazy(() => import("../pages/NotificationPage"));
 
-// suspense component
-const Suspense = ({ children }) => (
-  <ReactSuspense
-    fallback={
-      <div
-        style={{
-          display: "flex",
-          height: "100vh",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <CircularProgress />
-      </div>
-    }
-  >
-    {children}
-  </ReactSuspense>
-);
-
+// Router
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -37,45 +17,26 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: (
-          <Suspense>
-            <Home />
-          </Suspense>
-        ),
+        element: withSuspense(Home),
       },
       {
         path: "project/:projectId",
-        element: (
-          <Suspense>
-            <SeeProject />
-          </Suspense>
-        ),
+        element: withSuspense(SeeProject),
       },
       {
         path: "/project/:projectId/task/:taskId",
-        element: (
-          <Suspense>
-            <ProjectTask />
-          </Suspense>
-        ),
+        element: withSuspense(ProjectTask),
       },
       {
         path: "/notification",
-        element: (
-          <Suspense>
-            <Notification />
-          </Suspense>
-        ),
+        element: withSuspense(Notification),
       },
       {
         path: "*",
-        element: (
-          <Suspense>
-            <Home />
-          </Suspense>
-        ),
+        element: withSuspense(Home),
       },
     ],
+    errorElement: withSuspense(Home),
   },
   {
     path: "*",

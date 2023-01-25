@@ -1,4 +1,8 @@
-import { Box, IconButton, Stack, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import IconButton from "@mui/material/IconButton";
+
 import { CiSquarePlus } from "react-icons/ci";
 import { SmallSubTask } from "./SmallSubTask";
 import { colors } from "@mui/material";
