@@ -8,6 +8,7 @@ const Home = lazy(() => import("../pages/HomePage"));
 const SeeProject = lazy(() => import("../pages/SeeProject"));
 const ProjectTask = lazy(() => import("../pages/ProjectTask"));
 const Notification = lazy(() => import("../pages/NotificationPage"));
+const Login = lazy(() => import("../pages/Login"));
 
 // Router
 export const router = createBrowserRouter([
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/notification",
         element: withSuspense(Notification),
+      },
+      {
+        path: "/login",
+        element: withSuspense(Login),
       },
       {
         path: "*",
