@@ -57,6 +57,8 @@ export const NavigationalAppBar = () => {
 };
 
 export const NavigationalAppBar2 = () => {
+  let navigate = useNavigate();
+
   return (
     <Box sx={{ flexGrow: 1 }} bgcolor="transparent">
       <AppBar
@@ -81,7 +83,9 @@ export const NavigationalAppBar2 = () => {
               // fontSize : '10px'
             }}
           >
-            <IconButton color="blue" aria-label="back-button">
+            <IconButton color="blue" aria-label="back-button"
+              onClick={(e) => navigate("/")}
+            >
               <WestRoundedIcon fontSize={"small"} color="blue" />
             </IconButton>
           </Box>

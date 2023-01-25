@@ -14,6 +14,7 @@ const Home = lazy(() => import("./pages/Home"));
 const SeeProject = lazy(() => import("./pages/SeeProject"));
 const ProjectTask = lazy(() => import("./pages/ProjectTask"));
 const Notification = lazy(() => import("./pages/Notification"));
+const Login = lazy(() => import("./pages/Login"));
 
 // suspense component
 const Suspense = ({ children }) => (
@@ -70,6 +71,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense>
             <Notification />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense>
+            <Login />
           </Suspense>
         ),
       },
