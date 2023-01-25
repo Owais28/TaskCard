@@ -2,17 +2,11 @@ import { LinearProgress, ThemeProvider } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import { connect } from "react-redux";
-import { theme } from "../custom/theme";
-import { useEffect } from "react";
+import { theme } from "../data/theme";
 
-function R({ loading }) {
+function R({ loading, state, dispatch }) {
   console.log("Page : Root");
-  console.log(loading);
-
-  // useEffect(
-  //   // (() => Notification.requestPermission().then((req) => alert(req)))(),
-  //   []
-  // );
+  console.log(dispatch());
 
   return (
     <motion.div layout>
@@ -30,7 +24,12 @@ function R({ loading }) {
 
 const mapState = (state) => ({
   loading: state.loading,
+  state: state,
 });
 
-const Root = connect(mapState, null)(R);
+const mapDispatch = (dispatch) => ({
+  dispatch: () => dispatch,
+});
+
+const Root = connect(mapState, mapDispatch)(R);
 export default Root;

@@ -39,7 +39,7 @@ export const SubTask = ({ status, tasks }) => {
             fontWeight={"bold"}
             fontFamily={"Rubik"}
           >
-            To-do
+            {status ? status : "Todo"}
           </Typography>
           <Box
             border={"1px solid #3f51b5"}

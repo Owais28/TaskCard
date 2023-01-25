@@ -5,15 +5,15 @@ import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./styles/globals.css";
-import store from "./store/store";
+import store from "./data/store/store";
 
 import { CircularProgress } from "@mui/material";
 import Root from "./pages/Root";
 
-const Home = lazy(() => import("./pages/Home"));
+const Home = lazy(() => import("./pages/HomePage"));
 const SeeProject = lazy(() => import("./pages/SeeProject"));
 const ProjectTask = lazy(() => import("./pages/ProjectTask"));
-const Notification = lazy(() => import("./pages/Notification"));
+const Notification = lazy(() => import("./pages/NotificationPage"));
 
 // suspense component
 const Suspense = ({ children }) => (
@@ -36,7 +36,7 @@ const Suspense = ({ children }) => (
   </ReactSuspense>
 );
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,

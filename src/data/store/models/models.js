@@ -4,11 +4,11 @@ import { generateRandomId, generateEmtyProject } from "../../../utils"
 export const taskManager = {
   state: {
     tasks: [{
-      task: "Kick Of meeting project",
+      task: "ProjectOne sdsd",
       id: 1
     },
     {
-      task: "Kick Of meeting project",
+      task: "Task 2",
       id: 2
     },
     {
@@ -16,7 +16,7 @@ export const taskManager = {
       id: 3
     },
     {
-      task: "Kick Of meeting project",
+      task: "Task 4",
       id: 4
     },
     {
@@ -27,7 +27,7 @@ export const taskManager = {
       task: "Kick Of meeting project",
       id: 6
     }, {
-      task: "Kick Of meeting project",
+      task: "Task 7",
       id: 7
     }, {
       task: "Kick Of meeting project",
@@ -36,7 +36,7 @@ export const taskManager = {
       task: "Kick Of meeting project",
       id: 9
     }, {
-      task: "Kick Of meeting project",
+      task: "Task 10",
       id: 10
     },
     ],

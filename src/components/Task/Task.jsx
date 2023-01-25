@@ -2,7 +2,7 @@ import { Box, Checkbox, Typography } from "@mui/material";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export const Task = ({ id, deleteTask, setTask }) => {
+export const Task = ({ id, deleteTask, setTask, title }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.7 }}
@@ -29,7 +29,7 @@ export const Task = ({ id, deleteTask, setTask }) => {
             color={"rgb(0,0,0,.85)"}
             // mb={1}
           >
-            Kickoff Meeting Project
+            {title}
           </Typography>
           <Typography color={"rgb(0,0,0,0.6)"} fontSize={"13px"}>
             Today - 18.00 PM

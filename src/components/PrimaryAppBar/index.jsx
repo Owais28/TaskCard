@@ -8,14 +8,14 @@ import {
 } from "@mui/material";
 import { FiSearch } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 // PrimaryAppBar
 export const PrimaryAppBar = ({ name }) => {
+  const navigate = useNavigate();
+
   return (
-    <Box
-      sx={{ flexGrow: 1 }}
-      // position={"fixed"} top={0} left={0}
-    >
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="sticky"
         top={0}
@@ -66,6 +66,7 @@ export const PrimaryAppBar = ({ name }) => {
               sx={{
                 padding: "10px",
               }}
+              onClick={(e) => navigate("/notification", { replace: true })}
             >
               <IoNotificationsOutline
                 fontSize={22}
