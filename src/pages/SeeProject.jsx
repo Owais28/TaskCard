@@ -13,7 +13,7 @@ import { HorizontalFlexContaierWithLink } from "../components/Container/Horizont
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
 
 // SeeProject
-function SP({ setLoading }) {
+function SP({ setLoading, title, status, description }) {
   console.log("Page : SeeProject");
 
   useEffect(() => {

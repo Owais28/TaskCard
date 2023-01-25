@@ -15,6 +15,7 @@ export default defineConfig({
       manifest: {
         name: "TaskCard",
         short_name: "TaskCard",
+        description: "an app to manage your life and work",
         start_url: '/',
         icons:
           [{
