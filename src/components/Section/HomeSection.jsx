@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "swiper/css";
-import { MainCard } from "../Card/ProjectCard";
+import { ProjectCard } from "../Card/ProjectCard";
 import { PrimaryAppBar } from "../PrimaryAppBar";
 import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexContaierWithLink";
 import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatinerWithLink";
@@ -21,7 +21,7 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
         link={"/"}
       >
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-          <MainCard
+          <ProjectCard
             key={index}
             priority={1}
             projectId={item}
