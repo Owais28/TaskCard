@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 
-import Box from "@mui/material/Box";
-import Skeleton from "@mui/material/Skeleton";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import LinearProgress from "@mui/material/LinearProgress";
-import Typography from "@mui/material/Typography";
+import {
+  Box,
+  Skeleton,
+  Card,
+  CardContent,
+  LinearProgress,
+  Typography,
+} from "@mui/material";
 import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
 
 import { PriorityChip } from "../Chip/PriorityChip";

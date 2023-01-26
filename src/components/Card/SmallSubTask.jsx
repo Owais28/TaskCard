@@ -1,6 +1,4 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import { Box, Typography, Stack } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 
 import { CiCircleMore } from "react-icons/ci";

@@ -1,7 +1,7 @@
 import Root from "../pages/Root";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { withSuspense } from "../components/WithSuspense";
+import { withSuspense } from "../components/HOC/WithSuspense";
 
 // Pages
 const Home = lazy(() => import("../pages/HomePage"));
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         element: withSuspense(Home),
       },
     ],
-    errorElement: withSuspense(Home),
+    // errorElement: withSuspense(Home),
   },
   {
     path: "*",

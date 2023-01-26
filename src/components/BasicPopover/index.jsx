@@ -1,8 +1,5 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Popover from "@mui/material/Popover";
-import Typography from "@mui/material/Typography";
-import React, { useState } from "react";
+import { Box, Button, Popover, Typography } from "@mui/material";
+import { useState } from "react";
 
 export const BasicPopover = () => {
   const [anchorEl, setAnchorEl] = useState(null);

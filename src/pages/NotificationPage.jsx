@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { Stack, Typography } from "@mui/material";
-import { NotificationComponent } from "../components/Notification/NotificationComponent";
+import { NotificationComponent } from "../components/PrimaryAppBar/NotificationComponent";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
 import { MobileContainer } from "../components/Container/MobileContainer";
 

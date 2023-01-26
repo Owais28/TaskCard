@@ -1,99 +1,19 @@
-// import { Suspense as ReactSuspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { CookiesProvider } from "react-cookie";
-import { Provider } from "react-redux";
+import { Provider as StoreProvider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 
 import "./styles/globals.css";
 import store from "./data/store/store";
 
-// import { CircularProgress } from "@mui/material";
 import { router } from "./data/router";
-
-// // suspense component
-// const Suspense = ({ children }) => (
-//   <ReactSuspense
-//     fallback={
-//       <div
-//         style={{
-//           display: "flex",
-//           height: "100vh",
-//           flexDirection: "column",
-//           justifyContent: "center",
-//           alignItems: "center",
-//         }}
-//       >
-//         <CircularProgress />
-//       </div>
-//     }
-//   >
-//     {children}
-//   </ReactSuspense>
-// );
-
-// export const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Root />,
-//     children: [
-//       {
-//         index: true,
-//         element: (
-//           <Suspense>
-//             <Home />
-//           </Suspense>
-//         ),
-//       },
-//       {
-//         path: "project/:projectId",
-//         element: (
-//           <Suspense>
-//             <SeeProject />
-//           </Suspense>
-//         ),
-//       },
-//       {
-//         path: "/project/:projectId/task/:taskId",
-//         element: (
-//           <Suspense>
-//             <ProjectTask />
-//           </Suspense>
-//         ),
-//       },
-//       {
-//         path: "/notification",
-//         element: (
-//           <Suspense>
-//             <Notification />
-//           </Suspense>
-//         ),
-//       },
-//       {
-//         path: "*",
-//         element: (
-//           <Suspense>
-//             <Home />
-//           </Suspense>
-//         ),
-//       },
-//     ],
-//   },
-//   {
-//     path: "*",
-//     element: <Root />,
-//   },
-// ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <CookiesProvider>
-    {/* <ChakraProvider> */}
-    <Provider store={store}>
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
+    <StoreProvider store={store}>
       <RouterProvider router={router} />
-      {/* </Suspense> */}
-    </Provider>
-    {/* </ChakraProvider> */}
+    </StoreProvider>
   </CookiesProvider>
   // </React.StrictMode>
 );
