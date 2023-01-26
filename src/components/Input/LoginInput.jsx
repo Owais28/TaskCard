@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export function LoginInput({ value }) {
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div>
       <Stack direction={"column"}>
@@ -21,6 +21,7 @@ export function LoginInput({ value }) {
           hiddenLabel
           required
           placeholder="Email"
+          value={email}
           fullWidth
           type="text"
           outline="none"
@@ -45,12 +46,12 @@ export function LoginInput({ value }) {
           required
           placeholder="Password"
           fullWidth
-          value={pass}
+          value={password}
           type="password"
           outline="none"
           color="primary"
           style={{ backgroundColor: "#f2f2f2" }}
-          onChange={(e) => setPass(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           sx={{ mt: 2, mb: 2 }}
         />
       </Stack>
