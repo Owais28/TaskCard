@@ -1,11 +1,12 @@
 import React from 'react'
-import { NavigationalAppBar} from '../components/NavigationalAppBar'
+import { NavigationalAppBar } from '../components/NavigationalAppBar'
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { MobileContainer } from "../components/Container/MobileContainer";
 import { LoginInput } from '../components/Input/LoginInput';
 import { Divider } from '@mui/material';
@@ -19,7 +20,8 @@ function Login() {
 
     return (
         <MobileContainer>
-                <NavigationalAppBar title={"Login"} />
+            <NavigationalAppBar />
+            <Container>
                 <Typography variant="h3"
                     mt={10}
                 >
@@ -73,6 +75,7 @@ function Login() {
                     </Box>
                     <Typography mt={7}>Don't have an account?<Link onClick={(e) => navigate('/signup')} ml={1} sx={{ cursor: 'pointer' }}>Sign Up</Link> </Typography>
                 </Box>
+            </Container>
         </MobileContainer>
     )
 }

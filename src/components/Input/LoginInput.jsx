@@ -27,7 +27,7 @@ export function LoginInput({ value }) {
           outline="none"
           color="primary"
           style={{ backgroundColor: "#f2f2f2" }}
-          onClick={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           InputProps={{
