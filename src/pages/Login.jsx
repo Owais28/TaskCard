@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavigationalAppBar } from '../components/NavigationalAppBar'
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -7,8 +7,6 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Visibility from "@mui/icons-material/Visibility";
 import { MobileContainer } from "../components/Container/MobileContainer";
 import { Divider, InputAdornment, TextField } from '@mui/material';
 import { AccountCircle, Apple, CircleOutlined, Facebook, Google } from '@mui/icons-material';
@@ -24,9 +22,10 @@ function Login() {
         <MobileContainer>
             <NavigationalAppBar />
             <Container>
+
                 <Typography variant="h3"
                     mt={10}
-                >
+                    >
                     Login to your Account
                 </Typography>
                 <Box
@@ -36,7 +35,7 @@ function Login() {
                         flexDirection: 'column',
                         alignItems: 'center',
                     }}
-                >
+                    >
 
                     <Box component="form" noValidate sx={{ mt: 1 }} >
                         <TextField
@@ -82,7 +81,7 @@ function Login() {
                             style={{ backgroundColor: "#f2f2f2" }}
                             onChange={(e) => setPassword(e.target.value)}
                             sx={{ mt: 2, mb: 2 }}
-                        />
+                            />
                         <FormControlLabel
                             control={<Checkbox icon={<CircleOutlined sx={{ color: "blue" }} />} value="remember" color="primary"
                             />}
@@ -119,7 +118,8 @@ function Login() {
                     </Box>
                     <Typography mt={7}>Don't have an account?<Link onClick={(e) => navigate('/signup')} ml={1} sx={{ cursor: 'pointer' }}>Sign Up</Link> </Typography>
                 </Box>
-            </Container>
+                </Container>
+
         </MobileContainer>
     )
 }
