@@ -22,7 +22,6 @@ function Login() {
         <MobileContainer>
             <NavigationalAppBar />
             <Container>
-
                 <Typography variant="h3"
                     mt={10}
                     >
