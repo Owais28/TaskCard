@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationalAppBar2 } from '../components/NavigationalAppBar'
+import { NavigationalAppBar } from '../components/NavigationalAppBar'
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -20,8 +20,8 @@ function Login() {
 
     return (
         <MobileContainer>
+            <NavigationalAppBar />
             <Container>
-                <NavigationalAppBar2 />
                 <Typography variant="h3"
                     mt={10}
                 >
