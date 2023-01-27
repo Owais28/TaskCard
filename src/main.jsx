@@ -16,7 +16,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <CookiesProvider>
     <StoreProvider store={store}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
         <RouterProvider router={router} />
       </ThemeProvider>
     </StoreProvider>
