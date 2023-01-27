@@ -1,13 +1,5 @@
 import React, { useState } from 'react'
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import { Button, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography, Container } from '@mui/material';
 import { MobileContainer } from "../components/Container/MobileContainer";
 import { NavigationalAppBar } from '../components/NavigationalAppBar';
 import { Apple, CircleOutlined, Facebook, Google } from '@mui/icons-material';
@@ -21,20 +13,20 @@ import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
 
-    const navigate =useNavigate();
+    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         name: '',
-        userName: '',
+        username: '',
         email: '',
         password: '',
-        phoneno: '',
+        phone: '',
         dob: ''
     })
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("submitted: ",user);
+        console.log("submitted: ", user);
     };
 
     return (
@@ -72,10 +64,10 @@ function SignUp() {
                                 <TextField
                                     required
                                     fullWidth
-                                    label="User Name"
-                                    value={user.userName}
-                                    onChange={(e) => setUser((user) => ({ ...user, userName: e.target.value }))}
-                                    name="userName"
+                                    label="Username"
+                                    value={user.username}
+                                    onChange={(e) => setUser((user) => ({ ...user, username: e.target.value }))}
+                                    name="username"
                                     autoComplete="family-name"
                                     style={{ backgroundColor: "#f2f2f2" }}
 
@@ -131,8 +123,8 @@ function SignUp() {
                                     fullWidth
                                     label="Phone Number"
                                     name="pnumber"
-                                    value={user.phoneno}
-                                    onChange={(e) => setUser((user) => ({ ...user, phoneno: e.target.value }))}
+                                    value={user.phone}
+                                    onChange={(e) => setUser((user) => ({ ...user, phone: e.target.value }))}
                                     autoComplete="family-name"
                                     type='tel'
                                     style={{ backgroundColor: "#f2f2f2" }}
