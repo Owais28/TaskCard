@@ -12,6 +12,17 @@ import { SubTask } from "../components/Card/SubTask";
 import { HorizontalFlexContaierWithLink } from "../components/Container/HorizontalFlexContaierWithLink";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
 
+// const HorizontalFlexContaierWithLink = lazy(() =>
+//   import("../components/Container/HorizontalFlexContaierWithLink").then(
+//     (module) => ({ default: module.HorizontalFlexContaierWithLink })
+//   )
+// );
+// const NavigationalAppBar = lazy(() =>
+//   import("../components/NavigationalAppBar").then((module) => ({
+//     default: module.HorizontalFlexContaierWithLink,
+//   }))
+// );
+
 // SeeProject
 function SP({ setLoading, title, status, description }) {
   console.log("Page : SeeProject");
