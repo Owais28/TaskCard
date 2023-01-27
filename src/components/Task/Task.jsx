@@ -12,7 +12,7 @@ export const Task = ({ id, deleteTask, setTask, title }) => {
     >
       <Box
         data-id={id}
-        width={"100%"}
+        width={"80%"}
         sx={{
           borderRadius: "10px",
           // backgroundColor : '#ccc',

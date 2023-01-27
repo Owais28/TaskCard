@@ -26,13 +26,6 @@ export const VerticalFlexConatinerWithLink = ({
           paddingBottom={3}
           paddingX={"18px"}
           className={"vertical_flex_container"}
-          sx={
-            {
-              // '& > *' : {
-              //   marginRight : '0px'
-              // }
-            }
-          }
         >
           {children}
         </Box>
