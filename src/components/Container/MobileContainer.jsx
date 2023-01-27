@@ -10,7 +10,7 @@ export const MobileContainer = ({ children, ...props }) => {
         top: 0,
         minHeight: "100vh",
         maxHeight: "100vh",
-        overflow: "scroll",
+        overflow: "hidden",
         fontFamily: "Rubik",
         paddingBottom: "75px",
       }}

@@ -25,7 +25,7 @@ export const VerticalFlexConatinerWithLink = ({
           paddingTop={2}
           paddingBottom={3}
           paddingX={"18px"}
-          className={"horizontal_flex_container"}
+          className={"vertical_flex_container"}
           sx={
             {
               // '& > *' : {
