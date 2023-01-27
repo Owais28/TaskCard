@@ -16,7 +16,7 @@ const Error = lazy(() => import("../pages/Error"));
 export const router = createBrowserRouter([
   {
     path: "/",
-    // errorElement:withSuspense(Error),
+    errorElement:withSuspense(Error),
     element: <Root />,
     children: [
       {
