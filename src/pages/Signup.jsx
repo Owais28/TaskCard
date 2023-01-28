@@ -24,10 +24,11 @@ function SignUp() {
         dob: ''
     })
 
+
     return (
         <MobileContainer>
             <NavigationalAppBar />
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs" onSubmit={handleSubmit}>
                 <Typography variant="h3"
                     mt={10}
                 >
