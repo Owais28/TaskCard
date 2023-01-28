@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavigationalAppBar } from '../components/NavigationalAppBar'
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -7,17 +7,15 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Visibility from "@mui/icons-material/Visibility";
 import { MobileContainer } from "../components/Container/MobileContainer";
-import { Divider, InputAdornment, TextField } from '@mui/material';
-import { AccountCircle, Apple, CircleOutlined, Facebook, Google } from '@mui/icons-material';
+import { LoginInput } from '../components/Input/LoginInput';
+import { Divider } from '@mui/material';
+import { Apple, CircleOutlined, Facebook, Google } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
+
+
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    
     let navigate = useNavigate();
 
     return (
@@ -39,49 +37,7 @@ function Login() {
                 >
 
                     <Box component="form" noValidate sx={{ mt: 1 }} >
-                        <TextField
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <AccountCircle sx={{ color: "Black" }} />
-                                    </InputAdornment>
-                                ),
-                            }}
-                            hiddenLabel
-                            required
-                            placeholder="Email"
-                            value={email}
-                            fullWidth
-                            type="text"
-                            outline="none"
-                            color="primary"
-                            style={{ backgroundColor: "#f2f2f2" }}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <TextField
-                            InputProps={{
-                                startAdornment: (
-                                    <InputAdornment position="start">
-                                        <LockOutlinedIcon sx={{ color: "Black" }} />
-                                    </InputAdornment>
-                                ),
-                                endAdornment: (
-                                    <InputAdornment position="start">
-                                        <Visibility sx={{ color: "Black" }} />
-                                    </InputAdornment>
-                                ),
-                            }}
-                            hiddenLabel
-                            required
-                            placeholder="Password"
-                            fullWidth
-                            value={password}
-                            type="password"
-                            outline="none"
-                            color="primary"
-                            style={{ backgroundColor: "#f2f2f2" }}
-                            onChange={(e) => setPassword(e.target.value)}
-                            sx={{ mt: 2, mb: 2 }}
+                        <LoginInput
                         />
                         <FormControlLabel
                             control={<Checkbox icon={<CircleOutlined sx={{ color: "blue" }} />} value="remember" color="primary"
