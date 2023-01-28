@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavigationalAppBar } from '../components/NavigationalAppBar'
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -7,17 +7,15 @@ import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Visibility from "@mui/icons-material/Visibility";
 import { MobileContainer } from "../components/Container/MobileContainer";
-import { Divider, InputAdornment, TextField } from '@mui/material';
-import { AccountCircle, Apple, CircleOutlined, Facebook, Google } from '@mui/icons-material';
+import { LoginInput } from '../components/Input/LoginInput';
+import { Divider } from '@mui/material';
+import { Apple, CircleOutlined, Facebook, Google } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
+
+
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    
     let navigate = useNavigate();
 
     return (
