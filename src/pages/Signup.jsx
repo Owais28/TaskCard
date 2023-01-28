@@ -28,7 +28,7 @@ function SignUp() {
     return (
         <MobileContainer>
             <NavigationalAppBar />
-            <Container component="main" maxWidth="xs" onSubmit={handleSubmit}>
+            <Container component="main" maxWidth="xs" >
                 <Typography variant="h3"
                     mt={10}
                 >
