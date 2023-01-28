@@ -9,7 +9,6 @@ import store from "./data/store/store";
 import { router } from "./data/router";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./data/theme";
-import { CssBaseline } from "@mui/material";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
