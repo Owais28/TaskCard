@@ -1,6 +1,7 @@
 const TaskModel = require('../../models/taskModel')
 
 const TaskController = {
+  // GET
   // find all tasks
   all: async (req, res) => {
     const tasks = await TaskModel.find()
@@ -159,3 +160,5 @@ const TaskController = {
     res.json({ message: "Task has been deleted successfully." })
   }
 }
+
+module.exports = TaskController
