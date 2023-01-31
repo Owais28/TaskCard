@@ -1,7 +1,9 @@
 const express = require('express')
-const TaskController = require('./TaskController')
+const TaskController = require('./task/TaskController')
 const router = express.Router()
 
+
+// API for Task
 // GET
 // get all tasks
 router.get('/task', TaskController.all)

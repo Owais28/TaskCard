@@ -1,10 +1,8 @@
 var mongoose = require('mongoose')
-const { Schema } = mongoose
+const { Schema, Types } = mongoose
 
 // Task Schema
 const TaskSchema = new Schema({
-
-  _id: Schema.Types.ObjectId,
 
   // title
   title: {
