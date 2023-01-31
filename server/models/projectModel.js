@@ -2,7 +2,7 @@ var mongoose = require('mongoose')
 const { Schema } = mongoose
 
 // Project Schema
-const projectSchema = new Schema({
+const ProjectSchema = new Schema({
 
   _id: Schema.Types.ObjectId,
   // title
@@ -29,16 +29,16 @@ const projectSchema = new Schema({
 
   // boards {todo, inProgress, done}
   boards: {
-    todo: {
+    todo: [{
       type: Schema.Types.ObjectId, ref: "Task" || "GroupedTask"
-    },
-    inProgress: {
+    }],
+    inProgress: [{
       type: Schema.Types.ObjectId, ref: "Task" || "GroupedTask"
-    },
-    done: {
+    }],
+    done: [{
       type: Schema.Types.ObjectId, ref: "Task" || "GroupedTask"
-    }
+    }]
   },
 })
 
-export default mongoose.model('Project', projectSchema)
+module.exports = mongoose.model('Project', ProjectSchema)

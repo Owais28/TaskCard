@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 const { Schema } = mongoose
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   _id: Schema.Types.ObjectId,
 
   // name 
@@ -52,4 +52,4 @@ const userSchema = new Schema({
   projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 })
 
-export default mongoose.model('User', userSchema)
+module.exports = mongoose.model('User', UserSchema)
