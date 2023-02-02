@@ -1,7 +1,6 @@
 const TaskModel = require('../../models/taskModel')
 
 const TaskController = {
-  // GET
   // find all tasks
   all: async (req, res) => {
     const tasks = await TaskModel.find()
@@ -10,10 +9,8 @@ const TaskController = {
 
   // find all tasks from a specific project
   allInProject: async (req, res) => {
-    const { projectId } = req.params
-    const filter = { project: projectId } //filter object
-    const tasks = await TaskModel.find(filter)
-    res.json(tasks)
+    const tasks = await TaskModel.findInProject(req.params.projectId)
+    res.json({ tasks })
   },
 
   // find a specific task by <taskId>
@@ -22,17 +19,11 @@ const TaskController = {
     res.json({ task })
   },
 
-
-  // POST
   // create a task
   create: async (req, res, next) => {
-
     const { title, dueDate, } = req.body
-
     try {
-
-      // new task
-      const newTask = { title, dueDate, status: "todo" }
+      const newTask = { title, dueDate, status: "TODO" }
       const task = await TaskModel.create(newTask)
       res.json({ task })
 
@@ -43,12 +34,10 @@ const TaskController = {
 
   // create a task in a project
   createInProject: async (req, res, next) => {
-
     const { title, dueDate } = req.body
     const { projectId } = req.params
 
     try {
-
       const newTask = { title, dueDate, project: projectId }
       const task = await TaskModel.create(newTask)
       res.json({ message: "Task has been created successfully.", task })
@@ -58,49 +47,40 @@ const TaskController = {
     }
   },
 
-  // PUT
-  // update task 
+  // update a task 
   update: async (req, res, next) => {
 
     const { id } = req.params
     const { q } = req.query
+    try {
+      // if request is for title update
+      if (q === "title") {
+        const task = await TaskModel.updateTitle(id, req.body.title)
+        if (!task)
+          res.status(402).json({ message: 'task not exist, check your task id' })
 
-    // if update request is for title
-    if (q === "title") {
-      try {
-
-        const task = await TaskModel.findById(id)
-        // if task == null
-        if (!task) res.status(402).json({ message: "Task not found" })
-
-        // update task title
-        task.title = req.body.title
-        await task.save()
         res.json({ message: "Task has been updated successfully.", task })
-
-      } catch (error) {
-        console.log(error)
-        next(error)
       }
-    }
 
-    // if update request is for due date
-    if (q === "date") {
-      try {
+      // if request is for due date update
+      if (q === "date") {
+        const task = await TaskModel.updateDueDate(id, req.body.dueDate)
+        if (!task)
+          res.status(402).json({ message: 'task not exist, check your task id' })
 
-        const task = await TaskModel.findById(id)
-        // if task == null
-        if (!task) res.status(402).json({ message: "Task not found" })
-
-        // update due date
-        task.dueDate = req.body.dueDate
-        await task.save()
         res.json({ message: "Task has been updated successfully.", task })
-
-      } catch (error) {
-        console.log(error)
-        next(error)
       }
+
+      // if request is for status update
+      if (q === "status") {
+        const task = await TaskModel.updateStatus(id, req.body.status)
+        if (!task)
+          res.status(402).json({ message: 'task not exist, check your task id' })
+
+        res.json({ message: "Task has been updated successfully.", task })
+      }
+    } catch (err) {
+      next(err)
     }
 
   },
@@ -144,7 +124,6 @@ const TaskController = {
     res.json({ message: "Please provide query with request." })
   },
 
-  // DELETE
   delete: async (req, res) => {
     const { id } = req.params
     await TaskModel.findByIdAndDelete(id)
@@ -160,6 +139,8 @@ const TaskController = {
     res.json({ message: "Task has been deleted successfully." })
   }
 }
+
+
 
 module.exports = TaskController
 

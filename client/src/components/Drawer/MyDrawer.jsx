@@ -37,10 +37,10 @@ const MyDrawer = ({
 MyDrawer.propTypes = {
   title: PropTypes.string,
   anchor: PropTypes.oneOf(["bottom", "top", "left", "right"]),
-  children: PropTypes.elementType.isRequired,
+  // children: PropTypes.elementType,
   open: PropTypes.bool,
   onClose: PropTypes.func,
-  onOpen: PropTypes.func,
+  // onOpen: PropTypes.func,
 };
 
 export default MyDrawer;

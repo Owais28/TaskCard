@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Box } from "@mui/material";
 import { connect } from "react-redux";
+import { setTitle } from "../utils";
 
 const theme = createTheme({
   palette: {
@@ -24,11 +25,9 @@ const theme = createTheme({
 });
 
 function HomeWrapper({ setLoading }) {
-  // console.log(store.dispatch.project.newProject("My New Project"));
-  // console.log(store);
   console.log("Page : Home");
 
-  document.title = "TaskCard → " + "Home 🏡";
+  setTitle("Home 🏡");
 
   useEffect(() => {
     typeof setLoading === "function" && setLoading(false);
@@ -48,19 +47,9 @@ function HomeWrapper({ setLoading }) {
           initialSlide={0}
           simulateTouch={false}
           allowTouchMove={false}
-          // modules={[Autoplay]}
-          // autoplay={
-          //   {
-          //     delay: 1000
-          //   }
-          // }
-          // loop={true}
           zoom={false}
-          // onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => {
-            // console.log(swiper)
-            // setSwiper(swiper)
-          }}
+          // onSwiper={(swiper) => {
+          // }}
         >
           <SwiperSlide virtualIndex={1}>
             <HomeSection />

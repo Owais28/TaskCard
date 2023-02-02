@@ -98,9 +98,10 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
                 fontFamily={"Rubik"}
                 color={"rgb(0,0,0,0.6)"}
               >
-                {description.length <= 80
-                  ? description
-                  : description.slice(0, 81) + "..."}
+                {description &&
+                  (description.length <= 80
+                    ? description
+                    : description.slice(0, 81) + "...")}
               </Typography>
             </Box>
 

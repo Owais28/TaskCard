@@ -18,7 +18,7 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
       {/* <MainFeed> */}
       <HorizontalFlexContaierWithLink
         containerTitle={"Recent Project"}
-        link={"/"}
+        link={"/seeallprojects"}
       >
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
           <ProjectCard
@@ -31,7 +31,10 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
           />
         ))}
       </HorizontalFlexContaierWithLink>
-      <VerticalFlexConatinerWithLink link="/" containerTitle={"Today Task"}>
+      <VerticalFlexConatinerWithLink
+        link="/seealltasks"
+        containerTitle={"Today Task"}
+      >
         {tasks.map((task, index) => (
           <Task
             id={task.id}

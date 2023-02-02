@@ -2,9 +2,17 @@ import React from "react";
 import MyDrawer from "./MyDrawer";
 import { $ButtonForDrawer, $InputForDrawer } from "./wrappers";
 import PropTypes from "prop-types";
+import { useState } from "react";
+import { connect } from "react-redux";
 
 // this component make use of <Drawer> component
-const MyTaskDrawer = ({ toggleDrawer, isOpen }) => {
+const MyTaskDrawer = ({ toggleDrawer, isOpen, addTask }) => {
+  const [task, setTask] = useState("");
+
+  const handleClick = (e) => {
+    if (task) addTask(task);
+  };
+
   return (
     <MyDrawer
       onClose={toggleDrawer(false)}
@@ -15,13 +23,15 @@ const MyTaskDrawer = ({ toggleDrawer, isOpen }) => {
       <$InputForDrawer
         placeholder="Task"
         inputProps={{ "aria-label": "give task title" }}
+        value={task}
+        onChange={(e) => setTask(e.target.value)}
       />
       <$InputForDrawer
         type="date"
         placeholder="Due Date"
         inputProps={{ "aria-label": "give due date" }}
       />
-      <$ButtonForDrawer fullWidth variant="contained">
+      <$ButtonForDrawer fullWidth variant="contained" onClick={handleClick}>
         Create Task
       </$ButtonForDrawer>
     </MyDrawer>
@@ -39,4 +49,8 @@ MyTaskDrawer.defaultProps = {
   isOpen: false,
 };
 
-export default MyTaskDrawer;
+const mapDispatch = (dispatch) => ({
+  addTask: (task) => dispatch.taskManager.addTask({ task }),
+});
+
+export default connect(null, mapDispatch)(MyTaskDrawer);

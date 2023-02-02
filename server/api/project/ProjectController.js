@@ -1,4 +1,5 @@
 const ProjectModel = require('../../models/projectModel')
+const TaskModel = require('../../models/taskModel')
 
 const ProjectController = {
   // GET
@@ -15,25 +16,44 @@ const ProjectController = {
   },
 
   // TODO: update this file from this line onwards, 
-  // POST
   // create a project
   create: async (req, res, next) => {
     const { title, dueDate, } = req.body
+
     try {
-      const task = await ProjectModel.create({ title, dueDate, status: "todo" })
+      const doc = { title, dueDate, status: "TODO" }
+      const project = new ProjectModel(doc)
+      await project.save()
+
+      if (!project) res.status(402).json({ message: 'not created' })
+      res.json({ message: "Project created successfully", project })
+
     } catch (error) {
       next(error)
     }
   },
 
   // create a task in a project
-  createInProject: async (req, res, next) => {
+  createTaskInProject: async (req, res, next) => {
     const { title, dueDate } = req.body
     const { projectId } = req.params
+    const { q } = req.query
 
     try {
-      const task = await ProjectModel.create({ title, dueDate, project: projectId })
-      res.json({ message: "Task has been created successfully.", task })
+
+      if (q === 't') {
+        const task = new TaskModel({ title, dueDate, status: "TODO" })
+        const project = await ProjectModel.findById(projectId)
+
+        await task.save(function (err) {
+          if (err) next(err)
+          task.project = project._id
+          project.tasks = task._id
+          project.save()
+        })
+        res.json({ message: "Task has been created successfully.", project })
+      }
+
     } catch (error) {
       next(error)
     }

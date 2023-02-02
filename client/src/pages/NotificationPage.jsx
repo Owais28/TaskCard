@@ -16,7 +16,7 @@ function N({ setLoading }) {
 
   return (
     <MobileContainer>
-      <NavigationalAppBar />
+      <NavigationalAppBar title={"Notification"} />
       <Stack p={2}>
         <Typography fontWeight={"bold"} color={"black"}>
           Today

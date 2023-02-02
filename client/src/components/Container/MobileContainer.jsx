@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-export const MobileContainer = ({ children, ...props }) => {
+export const MobileContainer = ({ children, sx, ...props }) => {
   return (
     <Box
       sx={{
@@ -13,6 +13,7 @@ export const MobileContainer = ({ children, ...props }) => {
         overflow: "scroll",
         fontFamily: "Rubik",
         paddingBottom: "75px",
+        ...sx,
       }}
       {...props}
     >
