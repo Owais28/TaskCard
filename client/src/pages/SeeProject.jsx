@@ -42,7 +42,7 @@ function SP({ setLoading, title, status, description }) {
         paddingBottom: "75px",
       }}
     >
-      <NavigationalAppBar />
+      <NavigationalAppBar title={"Home"} />
       <Box height="220px">
         <Skeleton height="100%" variant="rectangular">
           {/* <img

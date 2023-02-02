@@ -1,30 +1,29 @@
 const express = require('express')
-const TaskController = require('./TaskController')
+const TaskController = require('./task/TaskController')
+const ProjectController = require('./project/ProjectController')
 const router = express.Router()
 
-// GET
 // get all tasks
 router.get('/task', TaskController.all)
 // get a specific task
 router.get('/task/:id', TaskController.one)
 
-// POST
 // create a task
 router.post('/task', TaskController.create)
 // create a task in a project
 router.post('/task/:projectId', TaskController.createInProject)
 
-// DELETE
 // delete a task
 router.delete('/task/:id', TaskController.delete)
 // delete a task from a project 
 router.delete('/task/:taskId/project/:projectId/', TaskController.deletInProject)
 
-// PUT(Update)
 // update a task
 router.put('/task/:id', TaskController.update)
 // update the task from the project
 router.put('/task/:taskId/project/:projectId', TaskController.updateInProject)
+router.put('/task/project/:projectId', ProjectController.createTaskInProject)
+router.put('/project', ProjectController.create)
 
 module.exports = router
 
@@ -47,9 +46,9 @@ module.exports = router
 
 // PROJECT
 // create a new project                                               -> /project
-// delete a project                                                   -> /project/id
 // update project name                                                -> /project/id?name
 // update project image                                               -> /project/id?img
 // update project description                                         -> /project/id?desc
 // update project status                                              -> /project/id?status
 // update project deadline                                            -> /project/id?deadline
+// delete a project                                                   -> /project/id

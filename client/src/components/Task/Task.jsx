@@ -1,5 +1,4 @@
 import { Box, Checkbox, Typography } from "@mui/material";
-import { useState } from "react";
 import { motion } from "framer-motion";
 
 export const Task = ({ id, deleteTask, setTask, title }) => {
@@ -58,7 +57,7 @@ export const Task = ({ id, deleteTask, setTask, title }) => {
               },
             }}
             onClick={(e) => {
-              setTask((task) => task - 1);
+              setTask && setTask((task) => task - 1);
               deleteTask(id);
             }}
             // checked={checked}
