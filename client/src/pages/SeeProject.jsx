@@ -4,6 +4,12 @@ import {
   Stack,
   Typography,
   LinearProgress,
+  styled,
+  Divider,
+  Icon,
+  SpeedDial,
+  SpeedDialIcon,
+  SpeedDialAction,
 } from "@mui/material";
 import { useEffect } from "react";
 import { connect } from "react-redux";
@@ -12,9 +18,20 @@ import { SubTask } from "../components/Card/SubTask";
 import { HorizontalFlexContaierWithLink } from "../components/Container/HorizontalFlexContaierWithLink";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
 import { setTitle } from "../utils";
+import { MobileContainer } from "../components/Container/MobileContainer";
+import { NoTaskPlaceholder } from "../components/Placeholder";
+import { IoFileTrayStacked } from "react-icons/io5";
+import { grey } from "@mui/material/colors";
+
+const $TextForTitle = styled(Typography)(({ theme }) => ({
+  fontSize: "larger",
+  fontWeight: "bold",
+  fontFamily: "Rubik",
+  marginBottom: theme.spacing(1),
+}));
 
 // SeeProject
-function SP({ setLoading, title, status, description }) {
+function SP({ setLoading, title, status, tasks, description }) {
   console.log("Page : SeeProject");
 
   setTitle("Project");
@@ -29,19 +46,7 @@ function SP({ setLoading, title, status, description }) {
   console.log(param);
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        maxWidth: "412px",
-        position: "relative",
-        top: 0,
-        minHeight: "100vh",
-        maxHeight: "100vh",
-        overflow: "scroll",
-        fontFamily: "Rubik",
-        paddingBottom: "75px",
-      }}
-    >
+    <MobileContainer>
       <NavigationalAppBar title={"Home"} />
       <Box height="220px">
         <Skeleton height="100%" variant="rectangular">
@@ -54,26 +59,16 @@ function SP({ setLoading, title, status, description }) {
       </Box>
       <Stack px="16px" py="18px">
         <Box>
-          <Typography
-            variant="h2"
-            fontSize={"larger"}
-            fontWeight="bold"
-            fontFamily={"Rubik"}
-            mb={1}
-          >
-            Tiki Mobile App
-          </Typography>
+          <$TextForTitle variant="h2">
+            {title ? title : "Project Title"}
+          </$TextForTitle>
         </Box>
-        <Typography
-          variant="description"
-          // fontFamily={"Rubik"}
-          // fontSize={"13px"}
-          // color={"rgb(0,0,0,0.6)"}
-        >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sed
-          eaque repudiandae laboriosam
+        <Typography variant="description">
+          {description
+            ? description
+            : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sed eaque repudiandae laboriosam"}
         </Typography>
-        <Stack
+        {/* <Stack
           direction={"row"}
           mt={3}
           alignItems={"center"}
@@ -118,15 +113,31 @@ function SP({ setLoading, title, status, description }) {
               },
             }}
           />
-          {/* <BorderLinearProgress variant='determinate' value={50}/> */}
-        </Box>
+        </Box> */}
       </Stack>
-      <HorizontalFlexContaierWithLink viewTitle={false}>
+      {/* <HorizontalFlexContaierWithLink viewTitle={false}>
         <SubTask />
         <SubTask />
         <SubTask />
-      </HorizontalFlexContaierWithLink>
-    </Box>
+      </HorizontalFlexContaierWithLink> */}
+      <Divider />
+      {/* <NoTaskPlaceholder /> */}
+      <SpeedDial
+        ariaLabel="SpaceDial"
+        sx={{
+          position: "absolute",
+          bottom: 30,
+          right: 30,
+        }}
+        icon={<SpeedDialIcon />}
+      >
+        <SpeedDialAction icon={<IoFileTrayStacked />} tooltipTitle="Task" />
+        <SpeedDialAction
+          icon={<IoFileTrayStacked />}
+          tooltipTitle="Grouped-task"
+        />
+      </SpeedDial>
+    </MobileContainer>
   );
 }
 

@@ -43,10 +43,7 @@ const MySwipeableDrawer = ({
 MySwipeableDrawer.propTypes = {
   title: PropTypes.string,
   anchor: PropTypes.oneOf(["bottom", "top", "left", "right"]),
-  children: PropTypes.elementType.isRequired,
   open: PropTypes.bool,
-  onClose: PropTypes.func,
-  onOpen: PropTypes.func,
 };
 
 export default MySwipeableDrawer;

@@ -72,7 +72,6 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             {/* Image Box */}
             <CardImg loading={loading} />
 
-            {/* Main Heading and priority*/}
             <Box
               marginBottom={1.5}
               marginTop={2}
@@ -123,7 +122,6 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
               />
             </Box>
 
-            {/* Progress */}
             <Box mt={2}>
               <Box display={"flex"} mb={1}>
                 <Typography
@@ -185,7 +183,6 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             </Box>
           </CardContent>
         </Card>
-        {/* </Link> */}
       </Box>
     </NavLink>
   );
