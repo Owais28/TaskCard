@@ -122,22 +122,22 @@ export const BottomMenu = (props) => {
   const handleClick = (choice) => {
     switch (choice) {
       case 1:
-        dispatch({ buttonText: "home" });
+        setSelectedButton({ buttonText: "home" });
         swiper.slideTo(0);
         setTitle("Home 🏡");
         break;
       case 2:
-        dispatch({ buttonText: "projects" });
+        setSelectedButton({ buttonText: "projects" });
         swiper.slideTo(1);
         setTitle("Projects 📑");
         break;
       case 3:
-        dispatch({ buttonText: "inbox" });
+        setSelectedButton({ buttonText: "inbox" });
         swiper.slideTo(2);
         setTitle("Inbox 💬");
         break;
       case 4:
-        dispatch({ buttonText: "settings" });
+        setSelectedButton({ buttonText: "settings" });
         swiper.slideTo(3);
         setTitle("Settings ⚙️");
         break;

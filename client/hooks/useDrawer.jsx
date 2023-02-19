@@ -14,7 +14,7 @@ export const useDrawer = (state, setModal) => {
       return;
     }
     setModal(false);
-    setDrawer(state);
+    setDrawer(open);
   };
 
   return [drawer, toggleDrawer];
