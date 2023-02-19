@@ -72,7 +72,6 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             {/* Image Box */}
             <CardImg loading={loading} />
 
-            {/* Main Heading and priority*/}
             <Box
               marginBottom={1.5}
               marginTop={2}
@@ -98,9 +97,10 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
                 fontFamily={"Rubik"}
                 color={"rgb(0,0,0,0.6)"}
               >
-                {description.length <= 80
-                  ? description
-                  : description.slice(0, 81) + "..."}
+                {description &&
+                  (description.length <= 80
+                    ? description
+                    : description.slice(0, 81) + "...")}
               </Typography>
             </Box>
 
@@ -122,7 +122,6 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
               />
             </Box>
 
-            {/* Progress */}
             <Box mt={2}>
               <Box display={"flex"} mb={1}>
                 <Typography
@@ -184,7 +183,6 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             </Box>
           </CardContent>
         </Card>
-        {/* </Link> */}
       </Box>
     </NavLink>
   );

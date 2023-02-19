@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Paper,
@@ -24,6 +24,8 @@ import { useSwiper } from "swiper/react";
 import TaskDrawer from "../Drawer/TaskDrawer";
 import MyProjectDrawer from "../Drawer/ProjectDrawer";
 import styled from "@emotion/styled";
+import { useSelectedButton } from "../../../hooks/useSelectedBtn";
+import { useDrawer } from "../../../hooks/useDrawer";
 
 // this is button is used in <BottomMenu>
 const MyButton = ({ handleClick, buttonStatus, icon, position }) => {
@@ -54,6 +56,7 @@ const $Paper = styled(Paper)(({ theme }) => ({
   zIndex: 20,
 }));
 
+// wrapper around <Modal> component
 const $Modal = styled(Modal)(({ theme }) => ({
   position: "absolute",
   top: "50%",
@@ -68,95 +71,35 @@ const $Modal = styled(Modal)(({ theme }) => ({
 
 // BottomMenu
 export const BottomMenu = (props) => {
-  /**
-   * this function is used to generate new state object based on user click
-   * and it make sure that user's last click become invalid
-   * @param {string} clickText
-   * @param {{ home : boolean,
-   *           projects: boolean,
-   *           inbox: boolean,
-   *           settings : boolean
-   * }} oldState
-   *
-   * @returns {{ home : boolean,
-   *            projects: boolean,
-   *            inbox: boolean,
-   *            settings : boolean
-   * }} updated object
-   */
-  const invalidateLastClick = (clickText, oldState) => {
-    const newState = {};
-    for (const key in oldState) {
-      if (key === clickText) {
-        newState[key] = true;
-        continue;
-      }
-      newState[key] = false;
-    }
-    return newState;
-  };
-
-  // reducer
-  const reducer = (state, action) => {
-    switch (action.buttonText) {
-      case "home":
-        return invalidateLastClick("home", state);
-      case "projects":
-        return invalidateLastClick("projects", state);
-      case "inbox":
-        return invalidateLastClick("inbox", state);
-      case "settings":
-        return invalidateLastClick("settings", state);
-      default:
-        new Error("unknow click");
-    }
-  };
-
   // state that keep track of selected section from the menu
-  const [selectedButton, dispatch] = useReducer(reducer, {
-    home: true,
-    projects: false,
-    inbox: false,
-    settings: false,
-  });
+  const [selectedButton, setSelectedButton] = useSelectedButton();
 
   const swiper = useSwiper();
 
   // state for modal
   const [open, setOpen] = useState(false);
+
   //functions to handle modal appearance
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   // state for drawers
-  const [projectDrawer, setProjectDrawer] = useState(false);
-  const [taskDrawer, setTaskDrawer] = useState(false);
+  const [projectDrawer, toggleProjectDrawer] = useDrawer(false, setOpen);
+  const [taskDrawer, toggleTaskDrawer] = useDrawer(false, setOpen);
+  // const [taskDrawer, setTaskDrawer] = useState(false);
 
-  // function to toggle <ProjectDrawer>
-  const toggleProjectDrawer = (open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setOpen(false);
-    setProjectDrawer(open);
-  };
-
-  // function to toggle <TaskDrawer>
-  const toggleTaskDrawer = (open) => (event) => {
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setOpen(false);
-    setTaskDrawer(open);
-  };
+  // // function to toggle <ProjectDrawer>
+  // const toggleProjectDrawer = (open) => (event) => {
+  //   if (
+  //     event &&
+  //     event.type === "keydown" &&
+  //     (event.key === "Tab" || event.key === "Shift")
+  //   ) {
+  //     return;
+  //   }
+  //   setOpen(false);
+  //   setProjectDrawer(open);
+  // };
 
   // function that run on SlideChange event
   swiper.on("slideChange", (swiper) => handleSlideChange(swiper.activeIndex));
@@ -179,22 +122,22 @@ export const BottomMenu = (props) => {
   const handleClick = (choice) => {
     switch (choice) {
       case 1:
-        dispatch({ buttonText: "home" });
+        setSelectedButton({ buttonText: "home" });
         swiper.slideTo(0);
         setTitle("Home 🏡");
         break;
       case 2:
-        dispatch({ buttonText: "projects" });
+        setSelectedButton({ buttonText: "projects" });
         swiper.slideTo(1);
         setTitle("Projects 📑");
         break;
       case 3:
-        dispatch({ buttonText: "inbox" });
+        setSelectedButton({ buttonText: "inbox" });
         swiper.slideTo(2);
         setTitle("Inbox 💬");
         break;
       case 4:
-        dispatch({ buttonText: "settings" });
+        setSelectedButton({ buttonText: "settings" });
         swiper.slideTo(3);
         setTitle("Settings ⚙️");
         break;

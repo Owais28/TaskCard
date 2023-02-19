@@ -15,11 +15,8 @@ export const VerticalFlexConatinerWithLink = ({
       <motion.div layout>
         <Box
           display={"grid"}
-          // flexDirection={'column'}
-          // flex={1}
           overflow="hidden"
           width={"100%"}
-          // height={'450px'}
           gridTemplateColumns={"1fr"}
           rowGap={2}
           paddingTop={2}

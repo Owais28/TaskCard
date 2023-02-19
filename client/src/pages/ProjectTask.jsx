@@ -15,7 +15,7 @@ function PT({ setLoading, tasks, deleteTask }) {
   const [task1, setTask] = useState(tasks && tasks.length);
 
   // title of page
-  // setTitle("Project");
+  setTitle("Task");
 
   useEffect(() => {
     setLoading(false);
@@ -47,7 +47,7 @@ function PT({ setLoading, tasks, deleteTask }) {
         paddingBottom: "75px",
       }}
     >
-      <NavigationalAppBar />
+      <NavigationalAppBar title={"Project"} link="/project/22" />
       <Box pt={3} pr={2} pl={2} pb={0.5}>
         <Box
           sx={{
@@ -96,6 +96,7 @@ function PT({ setLoading, tasks, deleteTask }) {
           <Task
             id={task.id}
             key={task.id}
+            title={task.task}
             setTask={setTask}
             deleteTask={deleteTask}
           />

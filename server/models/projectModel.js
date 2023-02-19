@@ -3,42 +3,25 @@ const { Schema } = mongoose
 
 // Project Schema
 const ProjectSchema = new Schema({
-
-  _id: Schema.Types.ObjectId,
-  // title
   title: {
     type: String,
     required: true,
   },
 
-  // description
-  desc: String,
-
-  // status (enum['todo' | 'in-progress' | 'done'])
+  description: String,
   status: {
     type: String,
-    enum: ['todo', 'in-progress', 'done'],
-    default: 'todo'
+    enum: ['TODO', 'INPROGRESS', 'DONE'],
+    default: 'TODO'
   },
 
-  // due date (Date)
   dueDate: Schema.Types.Date,
 
-  // cover image (reference -> Image)
-  cover: { type: Schema.Types.ObjectId, ref: 'Image' },
+  coverImg: { type: Schema.Types.ObjectId, ref: 'Image' },
 
-  // boards {todo, inProgress, done}
-  boards: {
-    todo: [{
-      type: Schema.Types.ObjectId, ref: "Task" || "GroupedTask"
-    }],
-    inProgress: [{
-      type: Schema.Types.ObjectId, ref: "Task" || "GroupedTask"
-    }],
-    done: [{
-      type: Schema.Types.ObjectId, ref: "Task" || "GroupedTask"
-    }]
-  },
+  tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
+
+  projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 })
 
 module.exports = mongoose.model('Project', ProjectSchema)

@@ -50,6 +50,14 @@ export const taskManager = {
           task => task.id !== payload
         )
       }
+    },
+    addTask(state, payload) {
+      const oldTasks = state.tasks
+      oldTasks.push({ task: payload.task, id: oldTasks[oldTasks.length - 1].id + 1 })
+      return {
+        totalTasks: state.totalTasks + 1,
+        tasks: oldTasks
+      }
     }
   }
 }
