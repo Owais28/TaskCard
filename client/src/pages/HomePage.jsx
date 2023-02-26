@@ -10,6 +10,7 @@ import { Box } from "@mui/material";
 import { connect } from "react-redux";
 import { setTitle } from "../utils";
 import { ProjectSection } from "../components/Section/ProjectSection";
+import { InboxSection } from "../components/Section/InboxSection";
 
 const theme = createTheme({
   palette: {
@@ -60,7 +61,7 @@ function HomeWrapper({ setLoading }) {
             <ProjectSection />
           </SwiperSlide>
           <SwiperSlide virtualIndex={3}>
-            <HomeSection />
+            <InboxSection />
           </SwiperSlide>
           <SwiperSlide virtualIndex={4}>
             <HomeSection />
