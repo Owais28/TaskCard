@@ -17,7 +17,7 @@ export const InboxSection = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Typography fontWeight="bold" fontFamily="Rubik" fontSize="small">
+        <Typography fontWeight="bold" fontFamily="Rubik" fontSize="medium">
           Inbox
         </Typography>
         <IconButton>

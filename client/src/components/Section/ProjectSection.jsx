@@ -21,7 +21,7 @@ export const ProjectSection = () => {
         py={1}
         justifyContent="space-between"
       >
-        <Typography fontWeight="bold" fontFamily="Rubik" fontSize="small">
+        <Typography fontWeight="bold" fontFamily="Rubik" fontSize="medium">
           My Project
         </Typography>
         <Stack
