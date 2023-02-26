@@ -28,16 +28,16 @@ import { useSelectedButton } from "../../../hooks/useSelectedBtn";
 import { useDrawer } from "../../../hooks/useDrawer";
 
 // this is button is used in <BottomMenu>
-const MyButton = ({ handleClick, buttonStatus, icon, position }) => {
+const MyButton = ({ handleClick, buttonStatus, title, icon, position }) => {
   return (
     <Box onClick={(event) => handleClick(position)} flex={1}>
       <BottomButton
         selected={buttonStatus}
         color="notSelected"
         colorIfSelected="black"
-      >
-        {icon}
-      </BottomButton>
+        icon={icon}
+        title={title}
+      />
     </Box>
   );
 };
@@ -155,6 +155,7 @@ export const BottomMenu = (props) => {
           handleClick={handleClick}
           icon={<HomeRounded fontSize="small" />}
           position={1}
+          title="Home"
         />
 
         {/* Project Button */}
@@ -163,6 +164,7 @@ export const BottomMenu = (props) => {
           icon={<FormatListBulletedRoundedIcon fontSize="small" />}
           handleClick={handleClick}
           position={2}
+          title="Project"
         />
 
         {/* Middle Button */}
@@ -239,6 +241,7 @@ export const BottomMenu = (props) => {
           handleClick={handleClick}
           icon={<NotificationsRounded fontSize="small" />}
           position={3}
+          title="Inbox"
         />
         {/* Setting Button */}
         <MyButton
@@ -246,6 +249,7 @@ export const BottomMenu = (props) => {
           buttonStatus={selectedButton.settings}
           icon={<SettingsRounded fontSize="small" />}
           position={4}
+          title="Profile"
         />
       </$Paper>
 

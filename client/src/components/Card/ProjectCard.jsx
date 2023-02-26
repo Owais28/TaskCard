@@ -80,8 +80,8 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             >
               <Typography
                 variant="h3"
-                fontSize={"19px"}
-                fontFamily={"Rubik"}
+                fontSize="19px"
+                fontFamily="Rubik"
                 fontWeight="bold"
                 flex={1}
               >
@@ -93,9 +93,9 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             <Box>
               <Typography
                 variant="body2"
-                fontSize={"13px"}
-                fontFamily={"Rubik"}
-                color={"rgb(0,0,0,0.6)"}
+                fontSize="13px"
+                fontFamily="Rubik"
+                color="rgb(0,0,0,0.6)"
               >
                 {description &&
                   (description.length <= 80
@@ -107,13 +107,13 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
             {/* Details */}
             <Box
               mt={2}
-              display={"flex"}
-              alignItems={"center"}
+              display="flex"
+              alignItems="center"
               justifyContent="start"
             >
               <DetailWithIcon
                 icon={<AccessTimeRoundedIcon fontSize="" />}
-                info={"8:00 AM - 5:00 PM"}
+                info="8:00 AM - 5:00 PM"
               />
               <Box width={"25px"} />
               <DetailWithIcon

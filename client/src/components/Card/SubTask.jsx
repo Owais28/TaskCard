@@ -1,13 +1,10 @@
-import { Box, Typography, Stack } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-
+import { Box, Typography, Stack, colors } from "@mui/material";
 import { CiSquarePlus } from "react-icons/ci";
 import { SmallSubTask } from "./SmallSubTask";
-import { colors } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 export const SubTask = ({ status, tasks }) => {
   const date = new Date();
-  console.log(colors);
 
   return (
     <Box

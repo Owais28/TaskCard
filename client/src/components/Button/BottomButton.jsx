@@ -6,6 +6,8 @@ export const BottomButton = ({
   color,
   py,
   colorIfSelected,
+  icon,
+  title,
 }) => {
   return (
     <Box
@@ -24,9 +26,15 @@ export const BottomButton = ({
           py: 2,
           height: "100%",
           borderRadius: 0,
+          fontSize: 10,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {children}
+        {icon}
+        <Box>{title}</Box>
       </Button>
     </Box>
   );

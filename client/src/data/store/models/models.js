@@ -3,6 +3,7 @@ import { generateRandomId, generateEmtyProject } from "../../../utils"
 // task manager
 export const taskManager = {
   state: {
+    id: 10,
     tasks: [{
       task: "ProjectOne sdsd",
       id: 1
@@ -53,10 +54,11 @@ export const taskManager = {
     },
     addTask(state, payload) {
       const oldTasks = state.tasks
-      oldTasks.push({ task: payload.task, id: oldTasks[oldTasks.length - 1].id + 1 })
+      oldTasks.push({ task: payload.task, id: state.id + 1 })
       return {
         totalTasks: state.totalTasks + 1,
-        tasks: oldTasks
+        tasks: oldTasks,
+        id: state.id + 1,
       }
     }
   }
@@ -112,6 +114,16 @@ export const project = {
       // add cover
       addCoverAsync: async (payload, rootState) => {
         const res = await (await fetch("").then(res => res.json()))
+
+      },
+
+      // update title asynchronously
+      updateTitleAsync: async (payload, rootState) => {
+        const res = await fetch({ url: "", method: "POST", body: { title: payload?.title } })
+        const data = await res.json()
+        if (res.ok) {
+          dispatch.updateProjectTitle(data?.title)
+        }
 
       }
     })
