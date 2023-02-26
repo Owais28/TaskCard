@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { HomeSection } from "../components/Section/HomeSection";
 import { BottomMenu } from "../components/Navigation/BottomMenu";
-import { NewProject } from "../components/Section/NewProject";
+// import { NewProject } from "../components/Section/NewProject";
 import "swiper/css";
 import "../index.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,6 +9,7 @@ import { ThemeProvider, createTheme } from "@mui/material";
 import { Box } from "@mui/material";
 import { connect } from "react-redux";
 import { setTitle } from "../utils";
+import { ProjectSection } from "../components/Section/ProjectSection";
 
 const theme = createTheme({
   palette: {
@@ -55,7 +56,8 @@ function HomeWrapper({ setLoading }) {
             <HomeSection />
           </SwiperSlide>
           <SwiperSlide virtualIndex={2}>
-            <NewProject />
+            {/* <NewProject /> */}
+            <ProjectSection />
           </SwiperSlide>
           <SwiperSlide virtualIndex={3}>
             <HomeSection />
