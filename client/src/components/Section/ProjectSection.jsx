@@ -29,9 +29,6 @@ export const ProjectSection = () => {
           alignItems="center"
           justifyContent="space-evenly"
         >
-          <IconButton>
-            <SearchOutlined fontSize="small" color="black" />
-          </IconButton>
           <IconButton onClick={(e) => setWithImg(true)}>
             <ImageOutlined
               fontSize="small"
@@ -47,11 +44,9 @@ export const ProjectSection = () => {
         </Stack>
       </Stack>
       <VerticalContainer>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        {[...new Array(20)].map((item, index) => (
+          <ProjectCard key={index} />
+        ))}
       </VerticalContainer>
     </MobileContainer>
   );

@@ -4,7 +4,6 @@ import { IconButton, Stack, Typography } from "@mui/material";
 import { MoreHorizSharp } from "@mui/icons-material";
 import { VerticalContainer } from "../Container/VerticalContainer";
 import { Searchbar } from "../Searchbar/Searchbar";
-import { NotificationComponent } from "../Notification/NotificationComponent";
 import { ChatComponent } from "../Chat/ChatComponent";
 
 export const InboxSection = () => {

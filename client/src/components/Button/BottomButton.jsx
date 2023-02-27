@@ -1,10 +1,8 @@
 import { Box, Button } from "@mui/material";
 
 export const BottomButton = ({
-  children,
   selected = false,
   color,
-  py,
   colorIfSelected,
   icon,
   title,
@@ -23,7 +21,7 @@ export const BottomButton = ({
         }
         sx={{
           width: "100%",
-          py: 2,
+          py: 1.5,
           height: "100%",
           borderRadius: 0,
           fontSize: 10,
