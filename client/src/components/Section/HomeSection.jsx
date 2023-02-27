@@ -7,6 +7,7 @@ import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatine
 import { Task } from "../Task/Task";
 import { MobileContainer } from "../Container/MobileContainer";
 import { connect } from "react-redux";
+import { motion } from "framer-motion";
 
 const Home = ({ tasks, taskCount, deleteTask }) => {
   console.log(tasks);
@@ -36,13 +37,21 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
         containerTitle={"Today Task"}
       >
         {tasks.map((task, index) => (
-          <Task
-            id={task.id}
-            key={task.id}
-            setTask={setTask}
-            deleteTask={deleteTask}
-            title={task.task}
-          />
+          <motion.div
+            drag="x"
+            dragConstraints={{ left: 0, right: 30 }}
+            // whileDrag={{ scale: 1.1 }}
+            dragElastic={0.1}
+            // dragSnapToOrigin
+          >
+            <Task
+              id={task.id}
+              key={task.id}
+              setTask={setTask}
+              deleteTask={deleteTask}
+              title={task.task}
+            />
+          </motion.div>
         ))}
       </VerticalFlexConatinerWithLink>
     </MobileContainer>
