@@ -7,7 +7,7 @@ import "./styles/globals.css";
 import store from "./data/store/store";
 
 import { router } from "./data/router";
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "./data/theme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
