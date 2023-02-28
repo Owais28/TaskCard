@@ -11,7 +11,7 @@ import { connect } from "react-redux";
 import { setTitle } from "../utils";
 import { ProjectSection } from "../components/Section/ProjectSection";
 import { InboxSection } from "../components/Section/InboxSection";
-import Calender from "react-calendar";
+import { ProfileSection } from "../components/Section/ProfileSection";
 
 const theme = createTheme({
   palette: {
@@ -65,7 +65,7 @@ function HomeWrapper({ setLoading }) {
             <InboxSection />
           </SwiperSlide>
           <SwiperSlide virtualIndex={4}>
-            <HomeSection />
+            <ProfileSection />
           </SwiperSlide>
           <BottomMenu />
         </Swiper>
