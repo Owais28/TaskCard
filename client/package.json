@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@rematch/core": "^2.2.0",
     "axios": "^1.2.1",
+    "firebase": "^9.17.2",
     "framer-motion": "^6.5.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
