@@ -37,21 +37,21 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
         containerTitle={"Today Task"}
       >
         {tasks.map((task, index) => (
-          <motion.div
-            drag="x"
-            dragConstraints={{ left: 0, right: 30 }}
-            // whileDrag={{ scale: 1.1 }}
-            dragElastic={0.1}
-            // dragSnapToOrigin
-          >
-            <Task
-              id={task.id}
-              key={task.id}
-              setTask={setTask}
-              deleteTask={deleteTask}
-              title={task.task}
-            />
-          </motion.div>
+          // <motion.div
+          // drag="x"
+          // dragConstraints={{ left: 0, right: 30 }}
+          // whileDrag={{ scale: 1.1 }}
+          // dragElastic={0.1}
+          // dragSnapToOrigin
+          // >
+          <Task
+            id={task.id}
+            key={task.id}
+            setTask={setTask}
+            deleteTask={deleteTask}
+            title={task.task}
+          />
+          // </motion.div>
         ))}
       </VerticalFlexConatinerWithLink>
     </MobileContainer>

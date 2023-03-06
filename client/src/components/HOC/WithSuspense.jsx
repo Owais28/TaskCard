@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { CircularProgress } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
 export const withSuspense = (WrappedComponent) => {
   document.title = "TaskCard 💭 " + "loading...";
@@ -14,6 +15,7 @@ export const withSuspense = (WrappedComponent) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            backgroundColor: grey[50],
           }}
         >
           <CircularProgress />

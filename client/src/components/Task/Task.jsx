@@ -4,10 +4,15 @@ import { motion } from "framer-motion";
 export const Task = ({ id, deleteTask, setTask, title }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.7 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
       layout
+      drag="x"
+      dragConstraints={{ left: 0, right: 30 }}
+      // whileDrag={{ scale: 1.1 }}
+      dragElastic={0.1}
+      dragSnapToOrigin
     >
       <Box
         data-id={id}
