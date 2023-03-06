@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -11,6 +11,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Visibility from "@mui/icons-material/Visibility";
 import { MobileContainer } from "../components/Container/MobileContainer";
 import { Divider, InputAdornment, TextField } from "@mui/material";
+
 import {
   AccountCircle,
   Apple,
@@ -20,15 +21,41 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { setTitle } from "../utils";
+import { connect } from "react-redux";
+import { useAuth } from "../hooks/auth/useAuth";
 
-function Login() {
+// L -> Login
+function L({ setLoading, user, state }) {
+  // form data
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   let navigate = useNavigate();
+  const { currentUser, signIn } = useAuth();
+
+  useEffect(() => {
+    setLoading(false);
+    setTitle("Login 🔐");
+    console.log(currentUser);
+    if (currentUser) navigate("/");
+  }, [currentUser]);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await signIn(email, password);
+  };
 
   return (
     <MobileContainer>
-      <NavigationalAppBar />
+      <NavigationalAppBar title={"Home"} link="/" />
       <Container>
         <Typography variant="h3" mt={10}>
           Login to your Account
@@ -102,6 +129,7 @@ function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 2, mb: 2, borderRadius: 100, bgcolor: "blue", py: 1.2 }}
+              onClick={handleLogin}
             >
               Sign In
             </Button>
@@ -169,6 +197,13 @@ function Login() {
 
 const mapDispatch = (dispatch) => ({
   setLoading: (loading) => dispatch.loading.setLoading(loading),
+  // setUser: (user) => dispatch.userModel.setUser(user),
 });
 
+const mapState = (state) => ({
+  user: state.user,
+  state: state,
+});
+
+const Login = connect(mapState, mapDispatch)(L);
 export default Login;

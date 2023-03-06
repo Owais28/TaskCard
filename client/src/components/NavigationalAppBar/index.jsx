@@ -1,8 +1,9 @@
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import WestRoundedIcon from "@mui/icons-material/WestRounded";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 
-export const NavigationalAppBar = ({ title, link = "/" }) => {
+const NAB = ({ title, setLoading, link = "/" }) => {
   let navigate = useNavigate();
 
   return (
@@ -32,7 +33,10 @@ export const NavigationalAppBar = ({ title, link = "/" }) => {
           <IconButton
             color="black"
             aria-label="back-button"
-            onClick={(e) => navigate(link)}
+            onClick={(e) => {
+              navigate(link);
+              setLoading(true);
+            }}
           >
             <WestRoundedIcon fontSize={"small"} />
           </IconButton>
@@ -94,3 +98,9 @@ export const NavigationalAppBar2 = () => {
     </Box>
   );
 };
+
+const mapDispatch = (dispatch) => ({
+  setLoading: (loading) => dispatch.loading.setLoading(loading),
+});
+
+export const NavigationalAppBar = connect(null, mapDispatch)(NAB);

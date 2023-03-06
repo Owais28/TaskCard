@@ -1,12 +1,12 @@
-import React, { createContext, useState, useContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../configs/firebase/firebase";
-
+import store from "../data/store/store";
 // AuthContext
-export const AuthContext = React.createContext();
+export const AuthContext = createContext();
 
 // export function useAuth1() {
 //   return useContext(AuthContext);
@@ -14,8 +14,14 @@ export const AuthContext = React.createContext();
 
 // wrapper around <AuthContext.Provider/>
 export function AuthContextProvider({ children }) {
+  const { dispatch } = store;
+
   // user state
   const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    dispatch.user.setUser(currentUser);
+  }, [currentUser]);
 
   // Sign Up
   function signUp(email, password) {
@@ -23,7 +29,8 @@ export function AuthContextProvider({ children }) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setCurrentUser(user);
+        // setCurrentUser(user);
+        console.log(user);
         // ...
       })
       .catch((error) => {
@@ -40,7 +47,10 @@ export function AuthContextProvider({ children }) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        dispatch.user.setUser(user);
         setCurrentUser(user);
+        console.log(user);
+
         // ...
       })
       .catch((error) => {
@@ -59,3 +69,7 @@ export function AuthContextProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
+
+const mapDispatch = (dispatch) => ({
+  setUser: (user) => dispatch.user.setUser(user),
+});

@@ -140,3 +140,14 @@ export const loading = {
     }
   }
 }
+
+// user model
+export const user = {
+  state: null,
+  reducers: {
+    setUser: (state, payload) => {
+      return payload
+    },
+  }
+
+}
