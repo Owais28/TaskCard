@@ -14,7 +14,7 @@ export const Task = ({ id, deleteTask, setTask, title }) => {
         width={"80%"}
         sx={{
           borderRadius: "10px",
-          // backgroundColor : '#ccc',
+          backgroundColor: "white",
           boxShadow: "0px 0px 25px 2px #e7e7e7",
           outline: "1px gray",
           padding: 2,

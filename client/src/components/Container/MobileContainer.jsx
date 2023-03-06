@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { grey } from "@mui/material/colors";
 
 export const MobileContainer = ({ children, sx, ...props }) => {
   return (
@@ -13,6 +14,7 @@ export const MobileContainer = ({ children, sx, ...props }) => {
         overflow: "scroll",
         fontFamily: "Rubik",
         paddingBottom: "75px",
+        bgcolor: grey[50],
         ...sx,
       }}
       {...props}

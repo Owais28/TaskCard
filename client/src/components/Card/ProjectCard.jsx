@@ -54,7 +54,8 @@ export const ProjectCard = ({ description, priority = 3, date, projectId }) => {
         <Card
           sx={{
             borderRadius: "10px",
-            // backgroundColor : '#ccc',
+            // backgroundColor: "#ccc",
+            backgroundColor: "white",
             boxShadow: "0px 0px 25px 2px #e7e7e7",
             outline: "1px gray",
             width: "360px",

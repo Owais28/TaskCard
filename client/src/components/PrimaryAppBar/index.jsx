@@ -6,6 +6,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { FiSearch } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -20,8 +21,9 @@ export const PrimaryAppBar = ({ name }) => {
         position="sticky"
         top={0}
         sx={{
+          bgcolor: grey[50],
           boxShadow: "none",
-          backgroundColor: "#fff",
+          // backgroundColor: "#fff",
           zIndex: 100,
           // borderBottom: "1px solid rgb(0,0,0,0.09)",
         }}
