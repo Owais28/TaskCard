@@ -8,13 +8,17 @@ import store from "./data/store/store";
 
 import { router } from "./data/router";
 import { ThemeProvider } from "@mui/material/styles";
-import { theme, theme3 } from "./data/theme";
+import { theme } from "./data/theme";
+import { AuthContextProvider } from "./contexts/AuthContext";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <CookiesProvider>
     <StoreProvider store={store}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
+        <AuthContextProvider>
+          <RouterProvider router={router} />
+        </AuthContextProvider>
       </ThemeProvider>
     </StoreProvider>
   </CookiesProvider>

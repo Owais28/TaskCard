@@ -1,7 +1,7 @@
 import Root from "../pages/Root";
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { withSuspense } from "../components/HOC/WithSuspense";
+import { withSuspense } from "../components/hoc/withSuspense";
 
 // Pages
 const Home = lazy(() => import("../pages/HomePage"));
@@ -12,6 +12,7 @@ const Login = lazy(() => import("../pages/Login"));
 const Signup = lazy(() => import("../pages/Signup"));
 const SeeAllProjects = lazy(() => import("../pages/SeeAllProjects"));
 const SeeAllTasks = lazy(() => import("../pages/SeeAllTasks"));
+const ProtectedRoute = lazy(() => import("../components/hoc/ProtectedRoute"));
 // const Error = lazy(() => import("../pages/Error"));
 
 // Router
@@ -23,19 +24,19 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: withSuspense(Home),
+        element: <ProtectedRoute>{withSuspense(Home)}</ProtectedRoute>,
       },
       {
-        path: "project/:projectId",
-        element: withSuspense(SeeProject),
+        path: "/project/:projectId",
+        element: <ProtectedRoute>{withSuspense(SeeProject)}</ProtectedRoute>,
       },
       {
         path: "/project/:projectId/task/:taskId",
-        element: withSuspense(ProjectTask),
+        element: <ProtectedRoute>{withSuspense(ProjectTask)}</ProtectedRoute>,
       },
       {
         path: "/notification",
-        element: withSuspense(Notification),
+        element: <ProtectedRoute>{withSuspense(Notification)}</ProtectedRoute>,
       },
       {
         path: "/login",
@@ -47,15 +48,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/seeallprojects",
-        element: withSuspense(SeeAllProjects),
+        element: (
+          <ProtectedRoute>{withSuspense(SeeAllProjects)}</ProtectedRoute>
+        ),
       },
       {
         path: "/seealltasks",
-        element: withSuspense(SeeAllTasks),
-      },
-      {
-        path: "*",
-        element: withSuspense(Home),
+        element: <ProtectedRoute>{withSuspense(SeeAllTasks)}</ProtectedRoute>,
       },
     ],
   },
