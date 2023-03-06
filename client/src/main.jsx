@@ -8,8 +8,7 @@ import store from "./data/store/store";
 
 import { router } from "./data/router";
 import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "./data/theme";
-
+import { theme, theme3 } from "./data/theme";
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <CookiesProvider>
