@@ -24,8 +24,8 @@ import { useSwiper } from "swiper/react";
 import TaskDrawer from "../Drawer/TaskDrawer";
 import MyProjectDrawer from "../Drawer/ProjectDrawer";
 import styled from "@emotion/styled";
-import { useSelectedButton } from "../../../hooks/useSelectedBtn";
-import { useDrawer } from "../../../hooks/useDrawer";
+import { useSelectedButton } from "../../hooks/useSelectedBtn";
+import { useDrawer } from "../../hooks/useDrawer";
 
 // this is button is used in <BottomMenu>
 const MyButton = ({ handleClick, buttonStatus, title, icon, position }) => {
