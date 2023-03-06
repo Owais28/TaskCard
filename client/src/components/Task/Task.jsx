@@ -1,7 +1,22 @@
-import { Box, Checkbox, Typography } from "@mui/material";
+import { Box, Checkbox, Snackbar, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export const Task = ({ id, deleteTask, setTask, title }) => {
+  // const [open, setOpen] = useState(false);
+
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = (event, reason) => {
+  //   if (reason === "clickaway") {
+  //     return;
+  //   }
+
+  //   setOpen(false);
+  // };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -64,9 +79,19 @@ export const Task = ({ id, deleteTask, setTask, title }) => {
             onClick={(e) => {
               setTask && setTask((task) => task - 1);
               deleteTask(id);
+              // handleClick();
             }}
             // checked={checked}
           />
+          {/* <Snackbar
+            open={open}
+            autoHideDuration={1000}
+            onClose={handleClose}
+            message="Note archived"
+          /> */}
+          {/* <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          This is a success message!
+        </Alert> */}
         </Box>
       </Box>
     </motion.div>
