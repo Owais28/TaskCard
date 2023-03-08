@@ -1,43 +1,58 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
-import Button from "@mui/material/Button";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Visibility from "@mui/icons-material/Visibility";
-import { MobileContainer } from "../components/Container/MobileContainer";
-import { Divider, InputAdornment, TextField } from "@mui/material";
-
+import {
+  Divider,
+  InputAdornment,
+  TextField,
+  Typography,
+  Box,
+  Container,
+  Link,
+  Checkbox,
+  Button,
+  FormControlLabel,
+} from "@mui/material";
 import {
   AccountCircle,
   Apple,
   CircleOutlined,
   Facebook,
   Google,
+  Visibility,
 } from "@mui/icons-material";
+
+import { MobileContainer } from "../components/Container/MobileContainer";
 import { useNavigate } from "react-router-dom";
 import { setTitle } from "../utils";
 import { connect } from "react-redux";
 import { useAuth } from "../hooks/auth/useAuth";
+import { useSignIn } from "../hooks/auth/useSignIn";
+import store from "../data/store/store";
 
 // L -> Login
 function L({ setLoading, user, state }) {
-  // form data
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail, password, setPassword] = useSignIn();
+  const { currentUser, signIn, setCurrentUser } = useAuth();
 
-  let navigate = useNavigate();
-  const { currentUser, signIn } = useAuth();
+  const { dispatch } = store;
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(false);
     setTitle("Login 🔐");
-    console.log(currentUser);
-    if (currentUser) navigate("/");
+
+    // if user is signed in
+    if (currentUser) {
+      setLoading(true);
+      navigate("/");
+    }
+
+    // if user exist in local storage
+    if (localStorage.getItem("user")) {
+      setCurrentUser(JSON.parse(localStorage.getItem("user")));
+      dispatch.user.setUser(JSON.parse(localStorage.getItem("user")));
+    }
   }, [currentUser]);
 
   const handleEmail = (e) => {
@@ -86,7 +101,7 @@ function L({ setLoading, user, state }) {
               outline="none"
               color="primary"
               style={{ backgroundColor: "#f2f2f2" }}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmail}
             />
             <TextField
               InputProps={{
@@ -110,7 +125,7 @@ function L({ setLoading, user, state }) {
               outline="none"
               color="primary"
               style={{ backgroundColor: "#f2f2f2" }}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePassword}
               sx={{ mt: 2, mb: 2 }}
             />
             <FormControlLabel

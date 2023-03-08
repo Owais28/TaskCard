@@ -1,16 +1,14 @@
 import { createContext, useEffect, useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
 import { auth } from "../configs/firebase/firebase";
 import store from "../data/store/store";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
 // AuthContext
 export const AuthContext = createContext();
-
-// export function useAuth1() {
-//   return useContext(AuthContext);
-// }
 
 // wrapper around <AuthContext.Provider/>
 export function AuthContextProvider({ children }) {
@@ -20,8 +18,16 @@ export function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    dispatch.user.setUser(currentUser);
-  }, [currentUser]);
+    // dispatch.user.setUser(currentUser);
+    auth.onAuthStateChanged((user) => {
+      // if unsigned in
+      if (!user) console.error("Error");
+
+      // otherwise
+      dispatch.user.setUser(user);
+      console.log(user);
+    });
+  }, []);
 
   // Sign Up
   function signUp(email, password) {
@@ -29,7 +35,7 @@ export function AuthContextProvider({ children }) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // setCurrentUser(user);
+        setCurrentUser(user);
         console.log(user);
         // ...
       })
@@ -43,21 +49,26 @@ export function AuthContextProvider({ children }) {
 
   // Sign In
   function signIn(email, password) {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        dispatch.user.setUser(user);
-        setCurrentUser(user);
-        console.log(user);
+    // TODO: uncomment it later
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     // Signed in
+    //     const user = userCredential.user;
+    //     // dispatch.user.setUser(user);
+    //     setCurrentUser(user);
+    //     // console.log(userCredential);
 
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log({ errorCode, errorMessage });
-      });
+    //     // ...
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.log({ errorCode, errorMessage });
+    //   });
+
+    localStorage.setItem("user", JSON.stringify({ email, password }));
+    setCurrentUser({ email, password });
+    dispatch.user.setUser({ email, password });
   }
 
   // provider value
@@ -65,6 +76,8 @@ export function AuthContextProvider({ children }) {
     currentUser,
     signIn,
     signUp,
+    // TODO: delete it later when you are done with local storage sign up method
+    setCurrentUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

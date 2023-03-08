@@ -26,9 +26,11 @@ const Home = ({ tasks, taskCount, deleteTask }) => {
             key={index}
             priority={1}
             projectId={item}
-            description={
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit."
-            }
+            project={{
+              title: "Demo Project Title",
+              description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam ut rerum illum natus placeat exercitationem assumenda odit nostrum quos. Vel quaerat velit dolore perferendis voluptatum possimus illum, unde reprehenderit.",
+            }}
           />
         ))}
       </HorizontalFlexContaierWithLink>
