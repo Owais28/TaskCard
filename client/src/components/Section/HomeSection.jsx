@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "swiper/css";
-import { ProjectCard } from "../Card/ProjectCard";
+import { ProjectCard } from "../Card/Project/ProjectCard";
 import { PrimaryAppBar } from "../PrimaryAppBar";
 import { HorizontalFlexContaierWithLink } from "../Container/HorizontalFlexContaierWithLink";
 import { VerticalFlexConatinerWithLink } from "../Container/VerticalFlexConatinerWithLink";

@@ -7,7 +7,7 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 import { VerticalContainer } from "../Container/VerticalContainer";
-import { ProjectCard } from "../Card/ProjectCard";
+import { ProjectCard } from "../Card/Project/ProjectCard";
 import { useState } from "react";
 
 export const ProjectSection = () => {
