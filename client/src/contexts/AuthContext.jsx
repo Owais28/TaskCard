@@ -82,7 +82,3 @@ export function AuthContextProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
-const mapDispatch = (dispatch) => ({
-  setUser: (user) => dispatch.user.setUser(user),
-});

@@ -1,6 +1,5 @@
-import { Box, Checkbox, Snackbar, Typography } from "@mui/material";
+import { Box, Checkbox, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export const Task = ({ id, deleteTask, setTask, title }) => {
   // const [open, setOpen] = useState(false);

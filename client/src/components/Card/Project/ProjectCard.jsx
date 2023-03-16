@@ -1,20 +1,14 @@
 import { useEffect, useState } from "react";
 
-import {
-  Box,
-  Card,
-  CardContent,
-  LinearProgress,
-  Typography,
-} from "@mui/material";
-
-import { PriorityChip } from "../../Chip/PriorityChip";
+import { Box, Card, CardContent } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { createContext } from "react";
 import { ProjectTitle } from "./ProjectTitle";
 import { ProjectDateAndTime } from "./ProjectDateAndTime";
 import { ProjectDescription } from "./ProjectDescription";
 import { ProjectImg } from "./ProjectImg";
+import { ProjectTitleWithPriority } from "./ProjectTitleWithPriority";
+import { ProjectProgress } from "./ProjectProgress";
 
 export const ProjectContext = createContext();
 
@@ -51,97 +45,6 @@ const MyCardContent = ({ children }) => {
   );
 };
 
-const MyFlexBox1 = ({ children }) => {
-  return (
-    <Box display={"flex"} mb={1}>
-      {children}
-    </Box>
-  );
-};
-
-const MyFlexBox2 = ({ children }) => {
-  return (
-    <Box marginBottom={1.5} marginTop={2} display="flex" alignItems="center">
-      {children}
-    </Box>
-  );
-};
-
-const MyTypography1 = ({ children }) => {
-  return (
-    <Typography
-      flex={1}
-      variant="body2"
-      fontSize={"13px"}
-      fontFamily={"Rubik"}
-      color={"rgb(0,0,0,0.4)"}
-    >
-      {children}
-    </Typography>
-  );
-};
-
-const MyTypography2 = ({ children }) => {
-  return (
-    <Typography
-      variant="body2"
-      fontSize={"13px"}
-      fontFamily={"Rubik"}
-      color={"rgb(0,0,0)"}
-      fontWeight="bold"
-    >
-      {children}
-    </Typography>
-  );
-};
-
-const PriorityBox = ({ children, priority }) => {
-  return (
-    <Box
-      sx={{
-        "& > .MuiLinearProgress-root  ": {
-          height: 7,
-          backgroundColor: `${
-            priority === 1
-              ? "#ffa1993d"
-              : priority === 2
-              ? "#c29fff30"
-              : "#b8ffef70"
-          }`,
-        },
-      }}
-    >
-      <MyLinearProgress priority={priority} />
-    </Box>
-  );
-};
-
-const MyLinearProgress = (props) => {
-  return (
-    <LinearProgress
-      sx={{
-        borderRadius: 5,
-        "&  .MuiLinearProgress-bar1Determinate": {
-          backgroundColor: `${
-            props.priority === 1
-              ? "#ff000094"
-              : props.priority === 2
-              ? "#b58aff"
-              : "teal"
-          }`,
-        },
-      }}
-      variant="determinate"
-      color="primary"
-      value={50}
-      classes={{
-        colorPrimary: {
-          backgroundColor: "#ccc",
-        },
-      }}
-    />
-  );
-};
 export const ProjectCard = ({
   priority = 3,
   projectId,
@@ -166,19 +69,10 @@ export const ProjectCard = ({
           <MyCard>
             <MyCardContent>
               <ProjectImg loading={loading} />
-              <MyFlexBox2>
-                <ProjectTitle />
-                <PriorityChip priority={priority} />
-              </MyFlexBox2>
+              <ProjectTitleWithPriority />
               <ProjectDescription />
               <ProjectDateAndTime />
-              <Box mt={2}>
-                <MyFlexBox1>
-                  <MyTypography1>Progress</MyTypography1>
-                  <MyTypography2>50%</MyTypography2>
-                </MyFlexBox1>
-                <PriorityBox priority={priority} />
-              </Box>
+              <ProjectProgress />
             </MyCardContent>
           </MyCard>
         </Box>
@@ -187,7 +81,9 @@ export const ProjectCard = ({
   );
 };
 
-ProjectCard.Title = ProjectTitle;
-ProjectCard.DateAndTime = ProjectDateAndTime;
-ProjectCard.Description = ProjectDescription;
-ProjectCard.Img = ProjectImg;
+// ProjectCard.Title = ProjectTitle;
+// ProjectCard.DateAndTime = ProjectDateAndTime;
+// ProjectCard.Description = ProjectDescription;
+// ProjectCard.Img = ProjectImg;
+// ProjectCard.Progress = ProjectProgress;
+// ProjectCard.ProjectTitleWithPriority = ProjectTitleWithPriority;

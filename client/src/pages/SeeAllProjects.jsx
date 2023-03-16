@@ -1,6 +1,6 @@
 import React from "react";
 import { MobileContainer } from "../components/Container/MobileContainer";
-import { ProjectCard } from "../components/Card/ProjectCard";
+import { ProjectCard } from "../components/Card/Project/ProjectCard";
 import { VerticalContainer } from "../components/Container/VerticalContainer";
 import { NavigationalAppBar } from "../components/NavigationalAppBar";
 
